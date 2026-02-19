@@ -58,7 +58,7 @@ Desarrollado como parte del módulo **Programación Multimedia y Dispositivos M�
 ## 📞 Contacto y Soporte
 
 * [cite_start]**GitHub**: [Josemajr6/el-compas-app](https://github.com/Josemajr6/el-compas-app.git) [cite: 72]
-* **Desarrollador**: Alejandro García [cite: 65]
+* **Desarrollador**: Ecentia [cite: 65]
 * [cite_start]**Estudio**: Creative Studio @ecentiamarketing [cite: 5]
 * [cite_start]**Web**: [ecentia.es](https://ecentia.es) [cite: 76]
 * [cite_start]**Email**: ecentiaseo@gmail.com [cite: 75]
