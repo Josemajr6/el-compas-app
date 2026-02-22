@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Paleta de Colores - Brand Kit 'El Compás' -->
+    <color name="albero_cream">#EFECE9</color>
+    <color name="sage_green">#849A8E</color>
+    <color name="tile_coral">#D88C8C</color>
+    <color name="yellow_sun">#E8D0A5</color>
+    <color name="green_light">#C2D5C9</color>
+
+    <color name="text_dark_brown">#4A2E2E</color>
+    <color name="text_black">#1A1C1B</color>
+    <color name="background_light">#FDFBF7</color>
+    <color name="dark_green">#232B27</color>
+
+    <!-- Otros colores -->
+    <color name="black">#1A1C1B</color>
+    <color name="white">#FDFBF7</color>
 </resources>

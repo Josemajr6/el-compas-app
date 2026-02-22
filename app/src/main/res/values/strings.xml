@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">andalucia_app</string>
+    <string name="app_name">El Compás</string>
+
+    <string name="nav_inicio">Inicio</string>
+    <string name="nav_personajes">Personajes</string>
+    <string name="nav_videos">Videos</string>
+    <string name="nav_sonidos">Sonidos</string>
+    <string name="nav_animaciones">Animaciones</string>
 </resources>
