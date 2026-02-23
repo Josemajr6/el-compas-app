@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    CONTROLADOR PERSONALIZADO DE EXOPLAYER
+    Sustituye al control por defecto para que encaje con la paleta
+    de colores de El Compás (sage_green, tile_coral, albero_cream).
+
+    Este fichero se referencia desde item_video.xml con:
+        app:controller_layout_id="@layout/exo_player_control_view"
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:orientation="vertical"
+    android:background="#CC1A1A1A"
+    android:paddingStart="12dp"
+    android:paddingEnd="12dp"
+    android:paddingTop="6dp"
+    android:paddingBottom="8dp">
+
+    <!-- Barra de progreso -->
+    <androidx.media3.ui.DefaultTimeBar
+        android:id="@id/exo_progress"
+        android:layout_width="match_parent"
+        android:layout_height="26dp"
+        android:layout_marginBottom="2dp" />
+
+    <!-- Fila de controles -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <!-- Retroceder 10 s -->
+        <ImageButton
+            android:id="@id/exo_rew"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/exo_icon_rewind"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="#FDFBF7"
+            android:contentDescription="Retroceder" />
+
+        <!-- Play / Pause -->
+        <ImageButton
+            android:id="@id/exo_play_pause"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:src="@drawable/exo_icon_play"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="@color/tile_coral"
+            android:contentDescription="Reproducir/Pausar" />
+
+        <!-- Avanzar 10 s -->
+        <ImageButton
+            android:id="@id/exo_ffwd"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/exo_icon_fastforward"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="#FDFBF7"
+            android:contentDescription="Avanzar" />
+
+        <!-- Tiempo actual -->
+        <TextView
+            android:id="@id/exo_position"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="#FDFBF7"
+            android:textSize="11sp"
+            android:fontFamily="sans-serif-medium" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" / "
+            android:textColor="#A0A0A0"
+            android:textSize="11sp" />
+
+        <!-- Duración total -->
+        <TextView
+            android:id="@id/exo_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#A0A0A0"
+            android:textSize="11sp"
+            android:fontFamily="sans-serif-medium" />
+
+        <!-- Spacer -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <!-- Pantalla completa -->
+        <ImageButton
+            android:id="@id/exo_fullscreen"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/exo_icon_fullscreen_enter"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="@color/sage_green"
+            android:contentDescription="Pantalla completa" />
+
+    </LinearLayout>
+
+</LinearLayout>
