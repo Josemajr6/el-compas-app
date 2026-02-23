@@ -90,7 +90,7 @@ public class SonidosFragment extends Fragment {
                 "Jc Reyes",            // string: sonido_1_artista
                 "2:00",                     // string: sonido_1_duracion
                 "HardTech",                 // string: sonido_1_categoria
-                R.drawable.sonidos,         // drawable: portada_1
+                R.drawable.fardos_jc,         // drawable: portada_1
                 R.raw.jc_reyes_fardos_hardtech_mashup             // raw: tu archivo .mp3
         ));
 
@@ -112,7 +112,7 @@ public class SonidosFragment extends Fragment {
                 "Los Diozes & Don Omar",              // string: sonido_3_artista
                 "2:58",                     // string: sonido_3_duracion
                 "Copla",                    // string: sonido_3_categoria
-                R.drawable.sonidos,         // drawable: portada_3
+                R.drawable.diabla_losdioze,         // drawable: portada_3
                 R.raw.los_diozes_x_don_omar_diabla_x_bandoleros             // raw: tu archivo .mp3
         ));
 
