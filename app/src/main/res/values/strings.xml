@@ -91,4 +91,11 @@
     <string name="sonido_4_duracion">3:33</string>
     <string name="sonido_4_categoria">Rumba</string>
 
+    <!-- ── FRAGMENT ANIMACIONES: Header ────────────────────────── -->
+    <!-- animaciones_titulo ya existe: "Animando Andalucía"         -->
+    <string name="animaciones_subtitulo">El duende del sur, en movimiento</string>
+
+    <!-- ── Accesibilidad: botones de control ───────────────────── -->
+    <string name="anim_btn_play_pausa_desc">Reproducir o pausar animación</string>
+    <string name="anim_btn_reiniciar_desc">Reiniciar animación</string>
 </resources>
