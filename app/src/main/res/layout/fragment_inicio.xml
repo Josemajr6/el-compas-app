@@ -15,7 +15,7 @@
         android:paddingBottom="110dp">
 
         <!-- ══════════════════════════════════════════════════
-             HERO — fondo degradado sage_green, 300dp de alto
+             HERO
              ══════════════════════════════════════════════════ -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -24,7 +24,6 @@
             android:clipChildren="false"
             android:clipToPadding="false">
 
-            <!-- Círculo decorativo grande, esquina superior derecha -->
             <View
                 android:layout_width="200dp"
                 android:layout_height="200dp"
@@ -35,7 +34,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
-            <!-- Círculo decorativo mediano, izquierda media -->
             <View
                 android:layout_width="120dp"
                 android:layout_height="120dp"
@@ -47,7 +45,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintVertical_bias="0.7" />
 
-            <!-- Círculo decorativo pequeño, esquina inferior derecha -->
             <View
                 android:layout_width="80dp"
                 android:layout_height="80dp"
@@ -58,7 +55,6 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
-            <!-- logo.png centrado, tamaño generoso -->
             <ImageView
                 android:id="@+id/iv_logo_hero"
                 android:layout_width="0dp"
@@ -75,7 +71,6 @@
                 app:layout_constraintVertical_chainStyle="packed"
                 app:layout_constraintVertical_bias="0.40" />
 
-            <!-- Subtítulo con letra espaciada -->
             <TextView
                 android:id="@+id/tv_hero_subtitulo"
                 android:layout_width="wrap_content"
@@ -104,6 +99,7 @@
 
         <!-- ══════════════════════════════════════════════════
              SECCIÓN BIENVENIDA
+             paddingTop aumentado para separar del wave
              ══════════════════════════════════════════════════ -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -111,9 +107,9 @@
             android:orientation="vertical"
             android:paddingStart="24dp"
             android:paddingEnd="24dp"
-            android:paddingTop="6dp">
+            android:paddingTop="20dp"
+            android:paddingBottom="4dp">
 
-            <!-- Tag pequeño en mayúsculas -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -124,7 +120,6 @@
                 android:fontFamily="sans-serif-medium"
                 android:textAllCaps="true" />
 
-            <!-- Título línea 1: color dark_brown -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -136,7 +131,6 @@
                 android:lineSpacingMultiplier="1.0"
                 android:layout_marginTop="4dp" />
 
-            <!-- Título línea 2: tile_coral para contraste -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -147,7 +141,6 @@
                 android:textStyle="bold"
                 android:lineSpacingMultiplier="1.0" />
 
-            <!-- Línea decorativa -->
             <View
                 android:layout_width="44dp"
                 android:layout_height="3dp"
@@ -155,7 +148,6 @@
                 android:layout_marginTop="14dp"
                 android:layout_marginBottom="14dp" />
 
-            <!-- Descripción -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -232,14 +224,13 @@
             android:paddingEnd="20dp"
             android:paddingTop="12dp">
 
-            <!-- Fila 1: Personajes + Vídeos -->
+            <!-- Fila 1 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginBottom="12dp">
 
-                <!-- Card Personajes -->
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="0dp"
                     android:layout_height="116dp"
@@ -274,7 +265,6 @@
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
-                <!-- Card Vídeos -->
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="0dp"
                     android:layout_height="116dp"
@@ -311,14 +301,13 @@
 
             </LinearLayout>
 
-            <!-- Fila 2: Sonidos + Animaciones -->
+            <!-- Fila 2 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginBottom="8dp">
 
-                <!-- Card Sonidos -->
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="0dp"
                     android:layout_height="116dp"
@@ -353,7 +342,6 @@
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
-                <!-- Card Animaciones -->
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="0dp"
                     android:layout_height="116dp"
@@ -393,7 +381,7 @@
         </LinearLayout>
 
         <!-- ══════════════════════════════════════════════════
-             PULL-QUOTE FINAL con icono.png decorativo
+             PULL-QUOTE FINAL
              ══════════════════════════════════════════════════ -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -404,24 +392,23 @@
             android:layout_marginTop="20dp"
             android:padding="24dp">
 
-            <!-- icono.png (sin letras) como watermark decorativo -->
             <ImageView
                 android:id="@+id/iv_icono_quote"
-                android:layout_width="44dp"
-                android:layout_height="44dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@drawable/icono"
                 android:scaleType="fitCenter"
                 android:adjustViewBounds="true"
-                android:alpha="0.45"
+                android:alpha="0.40"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
-            <!-- Comillas decorativas grandes -->
             <TextView
                 android:id="@+id/tv_comillas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="&#8220;"
+                android:layout_marginTop="-13dp"
                 android:textColor="#FDFBF7"
                 android:textSize="52sp"
                 android:fontFamily="serif"
@@ -430,7 +417,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <!-- Cita -->
             <TextView
                 android:id="@+id/tv_cita"
                 android:layout_width="0dp"
@@ -442,12 +428,11 @@
                 android:fontFamily="serif"
                 android:textStyle="italic"
                 android:layout_marginTop="28dp"
-                android:layout_marginEnd="56dp"
+                android:layout_marginEnd="52dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
-            <!-- Línea decorativa bajo la cita -->
             <View
                 android:layout_width="32dp"
                 android:layout_height="2dp"

@@ -30,6 +30,21 @@ public class PersonajesFragment extends Fragment {
         return view;
     }
 
+    /**
+     * ════════════════════════════════════════════════════════
+     *  ¿CÓMO AÑADIR UN PERSONAJE NUEVO?
+     *
+     *  lista.add(new Personaje(
+     *      "Nombre",
+     *      "Año · Ciudad",
+     *      "Descripción.",
+     *      "Categoría",
+     *      R.drawable.tu_foto,
+     *      true    ← true  = rellena la cuadrícula (centerCrop)
+     *              ← false = foto entera sin recorte (fitCenter)
+     *  ));
+     * ════════════════════════════════════════════════════════
+     */
     private List<Personaje> crearListaPersonajes() {
         List<Personaje> lista = new ArrayList<>();
 
@@ -38,7 +53,8 @@ public class PersonajesFragment extends Fragment {
                 "1978 · La Palmilla (Málaga)",
                 "Figura icónica de Málaga. Conocido por meter la mano en la comia y la gente que lo conoce por no pagarle lo que vale el piso.",
                 "Artista",
-                R.drawable.foto_juanpalmilla
+                R.drawable.foto_juanpalmilla,
+                true
         ));
 
         lista.add(new Personaje(
@@ -46,7 +62,8 @@ public class PersonajesFragment extends Fragment {
                 "2000 · El Rubio (Sevilla)",
                 "Desde chiquetillo mama me decia que dejara la juntiña. Pero?? Ando con Lua La L 3 chavo en los hoteles",
                 "Pintura",
-                R.drawable.foto_mellao
+                R.drawable.foto_mellao,
+                true
         ));
 
         lista.add(new Personaje(
@@ -54,7 +71,8 @@ public class PersonajesFragment extends Fragment {
                 "1996 · Cacín (Granada)",
                 "Con un poco pan y su freeway fesquita siempre operativa alegrando a la gente.",
                 "Historia",
-                R.drawable.foto_patica
+                R.drawable.foto_patica,
+                true
         ));
 
         lista.add(new Personaje(
@@ -62,7 +80,8 @@ public class PersonajesFragment extends Fragment {
                 "1994 · Fuengirola (Málaga)",
                 "Se le conoce por trabajar tela tela.",
                 "Política",
-                R.drawable.foto_juan
+                R.drawable.foto_juan,
+                true
         ));
 
         lista.add(new Personaje(
@@ -70,15 +89,26 @@ public class PersonajesFragment extends Fragment {
                 "1976 · Jerez de la Frontera (Cádiz)",
                 "¿Quién no conoce los show del Comandante Lara?",
                 "Flamenco",
-                R.drawable.foto_comandante
+                R.drawable.foto_comandante,
+                true
         ));
 
         lista.add(new Personaje(
                 "Juan Manuel Cortés 'JC' Reyes",
                 "1997 · Sevilla",
-                "Filósofo, médico y jurista cordobés del período islámico. Sus comentarios sobre Aristóteles fueron fundamentales para transmitir el pensamiento griego clásico a la Europa medieval.",
-                "Filosofía",
-                R.drawable.foto_jc
+                "Sevillano de pro y figura indiscutible del grupo. Conocido por su carisma desbordante y por tener siempre la última palabra, JC es de esos que lo mismo te arregla un argumento filosófico que te monta una fiesta en cinco minutos.",
+                "Crack Total",
+                R.drawable.foto_jc,
+                true
+        ));
+
+        lista.add(new Personaje(
+                "Hermanos 'Midudan'",
+                "1995 & 2003 · Sevilla",
+                "Se les conoce por saber de todo. Fundadores del grupo 'Midudan'",
+                "Crack Total",
+                R.drawable.foto_hermanos_midudan,
+                true
         ));
 
         return lista;

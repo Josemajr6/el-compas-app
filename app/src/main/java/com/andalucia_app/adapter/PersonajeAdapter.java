@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.andalucia_app.R;
 import com.andalucia_app.entity.Personaje;
-import com.google.android.material.chip.Chip;
 import java.util.List;
 
 public class PersonajeAdapter extends RecyclerView.Adapter<PersonajeAdapter.PersonajeViewHolder> {
@@ -44,7 +43,6 @@ public class PersonajeAdapter extends RecyclerView.Adapter<PersonajeAdapter.Pers
         private final TextView  tvNombre;
         private final TextView  tvEpoca;
         private final TextView  tvDescripcion;
-        private final Chip      chipCategoria;
 
         PersonajeViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -52,15 +50,21 @@ public class PersonajeAdapter extends RecyclerView.Adapter<PersonajeAdapter.Pers
             tvNombre      = itemView.findViewById(R.id.tv_nombre);
             tvEpoca       = itemView.findViewById(R.id.tv_epoca);
             tvDescripcion = itemView.findViewById(R.id.tv_descripcion);
-            chipCategoria = itemView.findViewById(R.id.chip_categoria);
         }
 
         void bind(Personaje p) {
             ivPersonaje.setImageResource(p.getImagenResId());
+
+            // Cada personaje decide su propio modo de imagen
+            ivPersonaje.setScaleType(
+                    p.isRellenarImagen()
+                            ? ImageView.ScaleType.CENTER_CROP   // rellena, puede recortar
+                            : ImageView.ScaleType.FIT_CENTER    // foto entera, sin recorte
+            );
+
             tvNombre.setText(p.getNombre());
             tvEpoca.setText(p.getEpoca());
             tvDescripcion.setText(p.getDescripcion());
-            chipCategoria.setText(p.getCategoria());
         }
     }
 }

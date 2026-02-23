@@ -16,13 +16,12 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <!--
-        BOTTOM NAV FLOTANTE — pill redondeada
-        ─────────────────────────────────────────
-        itemIconTint="@null"  → los PNGs se ven exactamente como son,
-                                sin ningún tinte que los aplaste
-        itemRippleColor transparente → sin efecto raro al pulsar
-        labelVisibilityMode unlabeled → solo iconos, limpio
-        ─────────────────────────────────────────
+        SOLUCIÓN CENTRADO:
+        La BottomNavigationView internamente fuerza su propia altura mínima
+        y añade padding bottom para los insets del sistema aunque se lo
+        desactives. La solución fiable es envolver la BottomNavigationView
+        en un LinearLayout con gravity="center" dentro del MaterialCardView.
+        Así el centrado lo controla el LinearLayout, no la BottomNav.
     -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/nav_card"
@@ -40,18 +39,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_navigation"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@android:color/transparent"
-            app:elevation="0dp"
-            app:paddingBottomSystemWindowInsets="false"
-            app:itemIconTint="@null"
-            app:itemIconSize="30dp"
-            app:itemRippleColor="@android:color/transparent"
-            app:labelVisibilityMode="unlabeled"
-            app:menu="@menu/bottom_nav_menu" />
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottom_navigation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:elevation="0dp"
+                app:paddingBottomSystemWindowInsets="false"
+                app:itemIconTint="@null"
+                app:itemIconSize="30dp"
+                app:itemRippleColor="@android:color/transparent"
+                app:labelVisibilityMode="unlabeled"
+                app:menu="@menu/bottom_nav_menu" />
+
+        </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
 

@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    ═══════════════════════════════════════════════════════════════
+    ITEM PERSONAJE
+    ───────────────────────────────────────────────────────────────
+    MODO FOTO — controla cómo se ve la imagen con el atributo:
+      android:scaleType en iv_personaje
+
+      · centerCrop   → rellena toda la imagen, puede recortar
+      · fitCenter    → se ve la foto entera, puede dejar huecos
+      · fitXY        → estira para rellenar, puede deformar
+
+    Cambia el valor de scaleType según prefieras.
+    ═══════════════════════════════════════════════════════════════
+-->
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -17,7 +31,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- Imagen del personaje (200dp alto, centerCrop) -->
+        <!-- ── Imagen del personaje ── -->
+        <!--
+            scaleType="centerCrop"  → rellena y hace zoom (recomendado para fotos)
+            scaleType="fitCenter"   → ve la foto entera sin recorte
+            Cambia este valor según lo que necesites.
+        -->
         <ImageView
             android:id="@+id/iv_personaje"
             android:layout_width="0dp"
@@ -37,22 +56,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Chip de categoría — esquina inferior izquierda de la imagen -->
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_categoria"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Categoría"
-            android:textColor="#FDFBF7"
-            android:textSize="11sp"
-            app:chipBackgroundColor="@color/tile_coral"
-            app:chipStrokeWidth="0dp"
-            app:chipMinHeight="28dp"
-            android:layout_margin="14dp"
-            app:layout_constraintBottom_toBottomOf="@id/iv_personaje"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <!-- Bloque de texto -->
+        <!-- ── Bloque de texto ── -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -65,28 +69,31 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
+            <!-- Línea decorativa de color -->
             <View
                 android:layout_width="36dp"
                 android:layout_height="3dp"
                 android:background="@color/sage_green"
                 android:layout_marginBottom="10dp" />
 
+            <!-- Nombre del personaje -->
             <TextView
                 android:id="@+id/tv_nombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nombre"
+                android:text="@string/personaje_nombre_ejemplo"
                 android:textColor="@color/text_dark_brown"
                 android:textSize="20sp"
                 android:fontFamily="serif"
                 android:textStyle="bold"
                 android:lineSpacingMultiplier="1.1" />
 
+            <!-- Época / lugar -->
             <TextView
                 android:id="@+id/tv_epoca"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Época"
+                android:text="@string/personaje_epoca_ejemplo"
                 android:textColor="@color/sage_green"
                 android:textSize="11.5sp"
                 android:fontFamily="sans-serif-medium"
@@ -94,11 +101,12 @@
                 android:layout_marginTop="3dp"
                 android:layout_marginBottom="10dp" />
 
+            <!-- Descripción -->
             <TextView
                 android:id="@+id/tv_descripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Descripción"
+                android:text="@string/personaje_desc_ejemplo"
                 android:textColor="#6B5050"
                 android:textSize="14sp"
                 android:lineSpacingMultiplier="1.6"
