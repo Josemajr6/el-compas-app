@@ -45,4 +45,51 @@
 
     <string name="videos_subtitulo">La esencia del sur, en movimiento</string>
 
+    <!--
+    ═══════════════════════════════════════════════════════════════
+    STRINGS PARA AÑADIR EN  app/src/main/res/values/strings.xml
+    ───────────────────────────────────────────────────────────────
+    Copia y pega estos <string> dentro del bloque <resources>
+    de tu fichero strings.xml existente.
+    ═══════════════════════════════════════════════════════════════
+-->
+
+    <!-- ── FRAGMENT SONIDOS: Header ───────────────────────────── -->
+    <string name="sonidos_titulo">Sonidos de Andalucía</string>
+    <string name="sonidos_subtitulo">El ritmo del sur en tu oído</string>
+
+    <!-- ── ITEM SONIDO: Textos de preview en el editor ────────── -->
+    <!-- Estos solo se usan como valor por defecto en el XML;      -->
+    <!-- los datos reales vienen del adapter / lista de Sonido.    -->
+    <string name="sonido_titulo_preview">Título de la Canción</string>
+    <string name="sonido_artista_preview">Artista</string>
+    <string name="sonido_categoria_preview">Flamenco</string>
+    <string name="sonido_duracion_preview">0:00</string>
+    <string name="sonido_tiempo_preview">0:00</string>
+
+    <!-- ── CANCIÓN 1 ────────────────────────────────────────────  -->
+    <!-- Modifica estos valores para cambiar los textos mostrados  -->
+    <string name="sonido_1_titulo">Entre Dos Aguas</string>
+    <string name="sonido_1_artista">Paco de Lucía</string>
+    <string name="sonido_1_duracion">4:23</string>
+    <string name="sonido_1_categoria">Flamenco</string>
+
+    <!-- ── CANCIÓN 2 ──────────────────────────────────────────── -->
+    <string name="sonido_2_titulo">Ay Mi Perro</string>
+    <string name="sonido_2_artista">Los Romeros de la Puebla</string>
+    <string name="sonido_2_duracion">3:10</string>
+    <string name="sonido_2_categoria">Sevillanas</string>
+
+    <!-- ── CANCIÓN 3 ──────────────────────────────────────────── -->
+    <string name="sonido_3_titulo">La Zarzamora</string>
+    <string name="sonido_3_artista">Lola Flores</string>
+    <string name="sonido_3_duracion">2:58</string>
+    <string name="sonido_3_categoria">Copla</string>
+
+    <!-- ── CANCIÓN 4 ──────────────────────────────────────────── -->
+    <string name="sonido_4_titulo">A Tu Vera</string>
+    <string name="sonido_4_artista">Lola Flores</string>
+    <string name="sonido_4_duracion">3:33</string>
+    <string name="sonido_4_categoria">Rumba</string>
+
 </resources>
