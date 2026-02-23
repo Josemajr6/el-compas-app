@@ -86,45 +86,45 @@ public class SonidosFragment extends Fragment {
         // TODO: Cambia R.raw.cancion_1 por tu fichero de audio
         //       y R.drawable.sonidos por la portada real
         lista.add(new Sonido(
-                "Entre Dos Aguas",          // string: sonido_1_titulo
-                "Paco de Lucía",            // string: sonido_1_artista
-                "4:23",                     // string: sonido_1_duracion
-                "Flamenco",                 // string: sonido_1_categoria
+                "Fardos Hardtech",          // string: sonido_1_titulo
+                "Jc Reyes",            // string: sonido_1_artista
+                "2:00",                     // string: sonido_1_duracion
+                "HardTech",                 // string: sonido_1_categoria
                 R.drawable.sonidos,         // drawable: portada_1
-                R.raw.cancion_1             // raw: tu archivo .mp3
+                R.raw.jc_reyes_fardos_hardtech_mashup             // raw: tu archivo .mp3
         ));
 
         // ── CANCIÓN 2 ──────────────────────────────────────────
         // TODO: Cambia R.raw.cancion_2 por tu fichero de audio
         lista.add(new Sonido(
-                "Ay Mi Perro",              // string: sonido_2_titulo
-                "Los Romeros de la Puebla", // string: sonido_2_artista
-                "3:10",                     // string: sonido_2_duracion
-                "Sevillanas",               // string: sonido_2_categoria
+                "El Patio x Ayer 2",              // string: sonido_2_titulo
+                "Pepe y Vizio & Anuel AA", // string: sonido_2_artista
+                "7:21",                     // string: sonido_2_duracion
+                "Mashup",               // string: sonido_2_categoria
                 R.drawable.sonidos,         // drawable: portada_2
-                R.raw.cancion_2             // raw: tu archivo .mp3
+                R.raw.el_patio_x_ayer_2_pepe_y_vizio
         ));
 
         // ── CANCIÓN 3 ──────────────────────────────────────────
         // TODO: Cambia R.raw.cancion_3 por tu fichero de audio
         lista.add(new Sonido(
-                "La Zarzamora",             // string: sonido_3_titulo
-                "Lola Flores",              // string: sonido_3_artista
+                "Diabla x Bandoleros",             // string: sonido_3_titulo
+                "Los Diozes & Don Omar",              // string: sonido_3_artista
                 "2:58",                     // string: sonido_3_duracion
                 "Copla",                    // string: sonido_3_categoria
                 R.drawable.sonidos,         // drawable: portada_3
-                R.raw.cancion_3             // raw: tu archivo .mp3
+                R.raw.los_diozes_x_don_omar_diabla_x_bandoleros             // raw: tu archivo .mp3
         ));
 
         // ── CANCIÓN 4 ──────────────────────────────────────────
         // TODO: Cambia R.raw.cancion_4 por tu fichero de audio
         lista.add(new Sonido(
-                "A Tu Vera",                // string: sonido_4_titulo
-                "Lola Flores",              // string: sonido_4_artista
-                "3:33",                     // string: sonido_4_duracion
-                "Rumba",                    // string: sonido_4_categoria
+                "Maricarmen",                // string: sonido_4_titulo
+                "La Pegatina",              // string: sonido_4_artista
+                "2:21",                     // string: sonido_4_duracion
+                "Tech",                    // string: sonido_4_categoria
                 R.drawable.sonidos,         // drawable: portada_4
-                R.raw.cancion_4             // raw: tu archivo .mp3
+                R.raw.la_pegatina_maricarmen_tech             // raw: tu archivo .mp3
         ));
 
         return lista;

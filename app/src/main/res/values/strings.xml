@@ -55,7 +55,6 @@
 -->
 
     <!-- ── FRAGMENT SONIDOS: Header ───────────────────────────── -->
-    <string name="sonidos_titulo">Sonidos de Andalucía</string>
     <string name="sonidos_subtitulo">El ritmo del sur en tu oído</string>
 
     <!-- ── ITEM SONIDO: Textos de preview en el editor ────────── -->
