@@ -1,15 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    ═══════════════════════════════════════════════════════════════
-    ITEM SONIDO — Tarjeta de cada canción
-    ───────────────────────────────────────────────────────────────
-    Sigue la misma estética que item_personaje.xml e item_video.xml:
-      · MaterialCardView con bordes yellow_sun y fondo albero_cream
-      · Portada cuadrada a la izquierda
-      · Título, artista, categoría + duración a la derecha
-      · SeekBar + tiempo actual + botones Play/Pausa y Stop abajo
-    ═══════════════════════════════════════════════════════════════
--->
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -37,15 +26,22 @@
             android:orientation="horizontal"
             android:gravity="center_vertical">
 
-            <!-- Portada cuadrada -->
-            <ImageView
-                android:id="@+id/iv_portada"
+            <!-- Portada cuadrada con esquinas redondeadas -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/sonidos"
                 app:cardCornerRadius="12dp"
-                android:background="@drawable/bg_badge_video" />
+                app:cardElevation="3dp"
+                app:strokeWidth="0dp">
+
+                <ImageView
+                    android:id="@+id/iv_portada"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/sonidos" />
+
+            </com.google.android.material.card.MaterialCardView>
 
             <!-- Info de la canción -->
             <LinearLayout
@@ -63,11 +59,6 @@
                     android:background="@color/sage_green"
                     android:layout_marginBottom="8dp" />
 
-                <!--
-                    El texto viene del adapter (sonido.getTitulo()).
-                    Para cambiar el texto de preview en el editor:
-                    STRING: <string name="sonido_titulo_preview">Título de la Canción</string>
-                -->
                 <TextView
                     android:id="@+id/tv_sonido_titulo"
                     android:layout_width="wrap_content"
@@ -81,9 +72,6 @@
                     android:maxLines="2"
                     android:ellipsize="end" />
 
-                <!--
-                    STRING PREVIEW: <string name="sonido_artista_preview">Artista</string>
-                -->
                 <TextView
                     android:id="@+id/tv_sonido_artista"
                     android:layout_width="wrap_content"
@@ -96,15 +84,12 @@
 
                 <!-- Fila categoría + duración -->
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
                     android:layout_marginTop="6dp">
 
-                    <!--
-                        STRING PREVIEW: <string name="sonido_categoria_preview">Flamenco</string>
-                    -->
                     <TextView
                         android:id="@+id/tv_sonido_categoria"
                         android:layout_width="wrap_content"
@@ -120,13 +105,11 @@
                         android:paddingBottom="2dp"
                         android:background="@drawable/bg_badge_video" />
 
-                    <!--
-                        STRING PREVIEW: <string name="sonido_duracion_preview">0:00</string>
-                    -->
                     <TextView
                         android:id="@+id/tv_sonido_duracion"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:text="0:00"
                         android:textColor="#A0A0A0"
                         android:textSize="11sp"
@@ -139,25 +122,22 @@
 
         </LinearLayout>
 
-        <!-- Separador sutil -->
+        <!-- Separador -->
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/yellow_sun"
             android:alpha="0.8"
             android:layout_marginTop="14dp"
-            android:layout_marginBottom="12dp" />
+            android:layout_marginBottom="10dp" />
 
-        <!-- ── Barra de progreso + tiempo ── -->
+        <!-- ── Barra de progreso + tiempos ── -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical">
 
-            <!--
-                STRING PREVIEW: <string name="sonido_tiempo_preview">0:00</string>
-            -->
             <TextView
                 android:id="@+id/tv_tiempo_actual"
                 android:layout_width="wrap_content"
@@ -166,15 +146,15 @@
                 android:textColor="@color/text_dark_brown"
                 android:textSize="11sp"
                 android:fontFamily="sans-serif-medium"
-                android:minWidth="32dp" />
+                android:minWidth="34dp" />
 
             <SeekBar
                 android:id="@+id/seekBar"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"
                 android:progressTint="@color/sage_green"
                 android:thumbTint="@color/sage_green"
                 android:progressBackgroundTint="@color/yellow_sun" />
@@ -183,35 +163,36 @@
                 android:id="@+id/tv_sonido_duracion_total"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="—"
+                android:text="0:00"
                 android:textColor="#A0A0A0"
                 android:textSize="11sp"
                 android:fontFamily="sans-serif-medium"
-                android:minWidth="32dp"
+                android:minWidth="34dp"
                 android:gravity="end" />
 
         </LinearLayout>
 
-        <!-- ── Controles Play / Stop ── -->
+        <!-- ── Controles: Anterior · Play/Pausa · Siguiente ── -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="4dp">
 
-            <!-- Botón Stop -->
+            <!-- Botón Anterior -->
             <ImageButton
-                android:id="@+id/btn_stop"
-                android:layout_width="44dp"
-                android:layout_height="44dp"
+                android:id="@+id/btn_anterior"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
                 android:src="@android:drawable/ic_media_previous"
                 android:background="@drawable/bg_circle_decor_cream"
                 android:tint="@color/text_dark_brown"
-                android:contentDescription="Detener"
-                android:layout_marginEnd="24dp" />
+                android:contentDescription="Canción anterior"
+                android:layout_marginEnd="20dp" />
 
-            <!-- Botón Play / Pausa (principal, más grande) -->
+            <!-- Botón Play / Pausa -->
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/btn_play_pausa"
                 android:layout_width="wrap_content"
@@ -222,6 +203,58 @@
                 app:fabSize="normal"
                 app:elevation="4dp"
                 android:contentDescription="Reproducir o pausar" />
+
+            <!-- Botón Siguiente -->
+            <ImageButton
+                android:id="@+id/btn_siguiente"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:src="@android:drawable/ic_media_next"
+                android:background="@drawable/bg_circle_decor_cream"
+                android:tint="@color/text_dark_brown"
+                android:contentDescription="Canción siguiente"
+                android:layout_marginStart="20dp" />
+
+        </LinearLayout>
+
+        <!-- ── Control de volumen ── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="12dp">
+
+            <!-- Icono volumen bajo -->
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@android:drawable/ic_lock_silent_mode"
+                android:scaleType="fitCenter"
+                android:tint="@color/sage_green"
+                android:alpha="0.8" />
+
+            <SeekBar
+                android:id="@+id/seekBarVolumen"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:max="100"
+                android:progress="80"
+                android:progressTint="@color/sage_green"
+                android:thumbTint="@color/tile_coral"
+                android:progressBackgroundTint="@color/yellow_sun" />
+
+            <!-- Icono volumen alto -->
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@android:drawable/ic_lock_silent_mode_off"
+                android:scaleType="fitCenter"
+                android:tint="@color/sage_green"
+                android:alpha="0.8" />
 
         </LinearLayout>
 
