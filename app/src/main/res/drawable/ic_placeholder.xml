@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Fondo en sage_green -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#849A8E" />
+        </shape>
+    </item>
+
+    <!-- icono.png centrado como watermark -->
+    <item
+        android:gravity="center"
+        android:width="72dp"
+        android:height="72dp">
+        <bitmap
+            android:src="@drawable/icono"
+            android:gravity="center"
+            android:alpha="0.30" />
+    </item>
+
+</layer-list>

@@ -1,9 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- ===== APP ===== -->
     <string name="app_name">El Compás</string>
 
+    <!-- ===== BOTTOM NAVIGATION ===== -->
     <string name="nav_inicio">Inicio</string>
     <string name="nav_personajes">Personajes</string>
-    <string name="nav_videos">Videos</string>
+    <string name="nav_videos">Vídeos</string>
     <string name="nav_sonidos">Sonidos</string>
     <string name="nav_animaciones">Animaciones</string>
+
+    <!-- ===== FRAGMENT INICIO: Hero ===== -->
+    <string name="inicio_hero_subtitulo">Descubre la esencia de Andalucía</string>
+
+    <!-- ===== FRAGMENT INICIO: Sección bienvenida ===== -->
+    <string name="inicio_seccion_tag">Bienvenido/a</string>
+    <string name="inicio_titulo_linea1">El alma del sur</string>
+    <string name="inicio_titulo_linea2">en tu bolsillo</string>
+    <string name="inicio_descripcion">El Compás es tu guía digital para explorar la riqueza cultural de Andalucía. Desde los personajes que forjaron nuestra historia hasta los sonidos que hacen vibrar el duende, todo está aquí, en el compás que marca el ritmo del sur.</string>
+
+    <!-- ===== FRAGMENT INICIO: Cards de secciones ===== -->
+    <string name="card_personajes_titulo">Personajes Ilustres</string>
+    <string name="card_videos_titulo">Andalucía en Vídeo</string>
+    <string name="card_sonidos_titulo">Sonidos</string>
+    <string name="card_animaciones_titulo">Animaciones</string>
+
+    <!-- ===== FRAGMENT INICIO: Cita final ===== -->
+    <string name="inicio_cita">Andalucía no se explica,\nse siente en cada compás.</string>
+
+    <!-- ===== FRAGMENT PERSONAJES: Header ===== -->
+    <string name="personajes_titulo">Personajes Ilustres</string>
+    <string name="personajes_subtitulo">Figuras que forjaron el alma andaluza</string>
+
+    <!-- ===== OTROS FRAGMENTS ===== -->
+    <string name="videos_titulo">Andalucía en Vídeo</string>
+    <string name="sonidos_titulo">Sonidos de Andalucía</string>
+    <string name="animaciones_titulo">Animando Andalucía</string>
+
 </resources>
