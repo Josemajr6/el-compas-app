@@ -101,7 +101,7 @@ public class SonidosFragment extends Fragment {
                 "Pepe y Vizio & Anuel AA", // string: sonido_2_artista
                 "7:21",                     // string: sonido_2_duracion
                 "Mashup",               // string: sonido_2_categoria
-                R.drawable.sonidos,         // drawable: portada_2
+                R.drawable.pepeyvizio_anuel,         // drawable: portada_2
                 R.raw.el_patio_x_ayer_2_pepe_y_vizio
         ));
 
@@ -123,7 +123,7 @@ public class SonidosFragment extends Fragment {
                 "La Pegatina",              // string: sonido_4_artista
                 "2:21",                     // string: sonido_4_duracion
                 "Tech",                    // string: sonido_4_categoria
-                R.drawable.sonidos,         // drawable: portada_4
+                R.drawable.la_pegatina,         // drawable: portada_4
                 R.raw.la_pegatina_maricarmen_tech             // raw: tu archivo .mp3
         ));
 
