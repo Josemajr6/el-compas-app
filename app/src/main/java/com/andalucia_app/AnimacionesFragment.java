@@ -84,6 +84,27 @@ public class AnimacionesFragment extends Fragment {
                 R.raw.ecentia_splash
         ));
 
+        lista.add(new Animacion(
+                "Tripaloski",
+                "Video mítico. El fundador es de Andalucía",
+                "Pureza",
+                R.raw.tripaloski
+        ));
+
+        lista.add(new Animacion(
+                "Salchipapa",
+                "¿Qué decir de este video?",
+                "Baile",
+                R.raw.salchipapa
+        ));
+
+        lista.add(new Animacion(
+                "Danza Dorada",
+                "Danza que realizo mi tío abuelo ganador de un premio",
+                "Baile",
+                R.raw.epstein_dancing
+        ));
+
 
         return lista;
     }
