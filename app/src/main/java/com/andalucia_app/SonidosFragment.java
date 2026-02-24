@@ -83,6 +83,16 @@ public class SonidosFragment extends Fragment {
         List<Sonido> lista = new ArrayList<>();
 
         // ── CANCIÓN 1 ──────────────────────────────────────────
+        lista.add(new Sonido(
+                "Estamos a Martes",          // string: sonido_1_titulo
+                "Gordo Master",            // string: sonido_1_artista
+                "4:05",                     // string: sonido_1_duracion
+                "Break",                 // string: sonido_1_categoria
+                R.drawable.gordomaster,         // drawable: portada_1
+                R.raw.estamosamartes             // raw: tu archivo .mp3
+        ));
+
+        // ── CANCIÓN 1 ──────────────────────────────────────────
         // TODO: Cambia R.raw.cancion_1 por tu fichero de audio
         //       y R.drawable.sonidos por la portada real
         lista.add(new Sonido(
@@ -105,13 +115,23 @@ public class SonidosFragment extends Fragment {
                 R.raw.el_patio_x_ayer_2_pepe_y_vizio
         ));
 
+        // ── CANCIÓN 2 ──────────────────────────────────────────
+        lista.add(new Sonido(
+                "Estilo Gitano - Angeliyo el Blanco",              // string: sonido_2_titulo
+                "Angeliyo el Blanco", // string: sonido_2_artista
+                "2:04",                     // string: sonido_2_duracion
+                "Flamenco",               // string: sonido_2_categoria
+                R.drawable.angeliyo_blanco,         // drawable: portada_2
+                R.raw.estilogitano_angeliyoelblanco
+        ));
+
         // ── CANCIÓN 3 ──────────────────────────────────────────
         // TODO: Cambia R.raw.cancion_3 por tu fichero de audio
         lista.add(new Sonido(
                 "Diabla x Bandoleros",             // string: sonido_3_titulo
                 "Los Diozes & Don Omar",              // string: sonido_3_artista
-                "2:58",                     // string: sonido_3_duracion
-                "Copla",                    // string: sonido_3_categoria
+                "6:18",                     // string: sonido_3_duracion
+                "Mashup",                    // string: sonido_3_categoria
                 R.drawable.diabla_losdioze,         // drawable: portada_3
                 R.raw.los_diozes_x_don_omar_diabla_x_bandoleros             // raw: tu archivo .mp3
         ));
@@ -125,6 +145,16 @@ public class SonidosFragment extends Fragment {
                 "Tech",                    // string: sonido_4_categoria
                 R.drawable.la_pegatina,         // drawable: portada_4
                 R.raw.la_pegatina_maricarmen_tech             // raw: tu archivo .mp3
+        ));
+
+        // ── CANCIÓN 5 ──────────────────────────────────────────
+        lista.add(new Sonido(
+                "La Esperanza de María - Virgen de los Reyes",                // string: sonido_4_titulo
+                "Virgen de los Reyes",              // string: sonido_4_artista
+                "4:37",                     // string: sonido_4_duracion
+                "Marcha Procesional",                    // string: sonido_4_categoria
+                R.drawable.virgendelosreyes,         // drawable: portada_4
+                R.raw.laesperanzademaria             // raw: tu archivo .mp3
         ));
 
         return lista;
