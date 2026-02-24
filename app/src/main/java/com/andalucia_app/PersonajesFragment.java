@@ -58,11 +58,11 @@ public class PersonajesFragment extends Fragment {
         ));
 
         lista.add(new Personaje(
-                "Gabriel 'Mellao'",
-                "2000 · El Rubio (Sevilla)",
-                "Desde chiquetillo mama me decia que dejara la juntiña. Pero?? Ando con Lua La L 3 chavo en los hoteles",
-                "Pintura",
-                R.drawable.foto_mellao,
+                "'Faliyo' de San Roque",
+                "2000 · San Roque (Cádiz)",
+                "Esta persona es uno de los mayores personajes de cádiz y autor de 'Caramelo'",
+                "Personaje",
+                R.drawable.foto_faliyo,
                 true
         ));
 
@@ -79,7 +79,7 @@ public class PersonajesFragment extends Fragment {
                 "Juan Alberto 'LMDShow'",
                 "1994 · Fuengirola (Málaga)",
                 "Se le conoce por trabajar tela tela.",
-                "Política",
+                "Streamer",
                 R.drawable.foto_juan,
                 true
         ));
@@ -88,7 +88,7 @@ public class PersonajesFragment extends Fragment {
                 "Luis 'Comandante' Lara",
                 "1976 · Jerez de la Frontera (Cádiz)",
                 "¿Quién no conoce los show del Comandante Lara?",
-                "Flamenco",
+                "Comediante",
                 R.drawable.foto_comandante,
                 true
         ));
@@ -96,8 +96,9 @@ public class PersonajesFragment extends Fragment {
         lista.add(new Personaje(
                 "Juan Manuel Cortés 'JC' Reyes",
                 "1997 · Sevilla",
-                "Sevillano de pro y figura indiscutible del grupo. Conocido por su carisma desbordante y por tener siempre la última palabra, JC es de esos que lo mismo te arregla un argumento filosófico que te monta una fiesta en cinco minutos.",
-                "Crack Total",
+                "Cantante, compositor y rapero español, nacido en Sevilla, reconocido por su" +
+                        " estilo distintivo que fusiona trap, flamenco y reguetón.",
+                "Cantante",
                 R.drawable.foto_jc,
                 true
         ));
@@ -106,7 +107,7 @@ public class PersonajesFragment extends Fragment {
                 "Hermanos 'Midudan'",
                 "1995 & 2003 · Sevilla",
                 "Se les conoce por saber de todo. Fundadores del grupo 'Midudan'",
-                "Crack Total",
+                "Descubridores / Geólogos",
                 R.drawable.foto_hermanos_midudan,
                 true
         ));
