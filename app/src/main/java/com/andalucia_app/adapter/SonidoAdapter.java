@@ -18,36 +18,22 @@ import com.andalucia_app.entity.Sonido;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.List;
 
-/**
- * ════════════════════════════════════════════════════════════════
- * SonidoAdapter — versión con Anterior, Siguiente y Volumen
- * ────────────────────────────────────────────────────────────────
- * · Botón Anterior  → reproduce la canción de la tarjeta anterior
- * · Botón Siguiente → reproduce la canción de la tarjeta siguiente
- * · SeekBar Volumen → ajusta el volumen solo del player activo
- * · Un único MediaPlayer activo a la vez
- * · SeekBar de progreso arrastrable
- * · Al terminar la canción la tarjeta vuelve al estado inicial
- * ════════════════════════════════════════════════════════════════
- */
+
 public class SonidoAdapter extends RecyclerView.Adapter<SonidoAdapter.SonidoViewHolder> {
 
     private final List<Sonido>   sonidos;
     private       RecyclerView   recyclerView; // referencia para navegar a otra tarjeta
 
-    // ── Estado global ─────────────────────────────────────────────
     private MediaPlayer      activePlayer     = null;
     private SonidoViewHolder activeHolder     = null;
     private int              activePosition   = Math.toIntExact(RecyclerView.NO_ID);
     private final Handler    handler          = new Handler(Looper.getMainLooper());
     private Runnable         progressRunnable;
-    // ─────────────────────────────────────────────────────────────
 
     public SonidoAdapter(List<Sonido> sonidos) {
         this.sonidos = sonidos;
     }
 
-    // Guardar la referencia al RecyclerView para poder hacer scroll y acceder a holders
     @Override
     public void onAttachedToRecyclerView(@NonNull RecyclerView rv) {
         super.onAttachedToRecyclerView(rv);
@@ -59,10 +45,6 @@ public class SonidoAdapter extends RecyclerView.Adapter<SonidoAdapter.SonidoView
         super.onDetachedFromRecyclerView(rv);
         this.recyclerView = null;
     }
-
-    // ─────────────────────────────────────────────────────────────
-    //  RecyclerView callbacks
-    // ─────────────────────────────────────────────────────────────
 
     @NonNull
     @Override
@@ -98,14 +80,6 @@ public class SonidoAdapter extends RecyclerView.Adapter<SonidoAdapter.SonidoView
         }
     }
 
-    // ─────────────────────────────────────────────────────────────
-    //  Lógica de reproducción
-    // ─────────────────────────────────────────────────────────────
-
-    /**
-     * Inicia o alterna play/pausa en la posición indicada.
-     * Si hay otra canción activa, la detiene primero.
-     */
     private void playAudio(Context context, SonidoViewHolder newHolder,
                            Sonido sonido, int position) {
 
@@ -157,10 +131,6 @@ public class SonidoAdapter extends RecyclerView.Adapter<SonidoAdapter.SonidoView
         startProgressUpdate(newHolder);
     }
 
-    /**
-     * Navega a la posición indicada: hace scroll, espera a que el holder
-     * esté en pantalla y arranca la reproducción.
-     */
     private void navegarA(int newPosition, Context context) {
         if (newPosition < 0 || newPosition >= sonidos.size()) return;
         if (recyclerView == null) return;
@@ -183,10 +153,6 @@ public class SonidoAdapter extends RecyclerView.Adapter<SonidoAdapter.SonidoView
             }
         }, 350);
     }
-
-    // ─────────────────────────────────────────────────────────────
-    //  Helpers de progreso y liberación
-    // ─────────────────────────────────────────────────────────────
 
     private void startProgressUpdate(SonidoViewHolder holder) {
         stopProgressUpdate();
@@ -228,9 +194,6 @@ public class SonidoAdapter extends RecyclerView.Adapter<SonidoAdapter.SonidoView
         return String.format("%d:%02d", m, s);
     }
 
-    // ─────────────────────────────────────────────────────────────
-    //  ViewHolder
-    // ─────────────────────────────────────────────────────────────
 
     class SonidoViewHolder extends RecyclerView.ViewHolder {
 

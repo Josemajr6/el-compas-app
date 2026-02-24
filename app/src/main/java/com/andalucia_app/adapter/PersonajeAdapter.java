@@ -58,8 +58,8 @@ public class PersonajeAdapter extends RecyclerView.Adapter<PersonajeAdapter.Pers
             // Cada personaje decide su propio modo de imagen
             ivPersonaje.setScaleType(
                     p.isRellenarImagen()
-                            ? ImageView.ScaleType.CENTER_CROP   // rellena, puede recortar
-                            : ImageView.ScaleType.FIT_CENTER    // foto entera, sin recorte
+                            ? ImageView.ScaleType.CENTER_CROP
+                            : ImageView.ScaleType.FIT_CENTER
             );
 
             tvNombre.setText(p.getNombre());

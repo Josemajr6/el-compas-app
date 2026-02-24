@@ -17,26 +17,6 @@ import com.andalucia_app.entity.Video;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * ════════════════════════════════════════════════════════════════
- * VideosFragment — "Andalucía en Vídeo"
- * ────────────────────────────────────────────────────────────────
- * Muestra una lista de vídeos reproducibles con ExoPlayer (Media3).
- * Cada tarjeta tiene: thumbnail, botón Play, controles nativos,
- * título, duración/categoría y descripción.
- *
- * ¿CÓMO AÑADIR UN VÍDEO?
- *   Puedes usar URLs públicas (mp4, m3u8) o recursos locales:
- *     "android.resource://com.andalucia_app/" + R.raw.mi_video
- *
- * ¿CÓMO AÑADIR UN VÍDEO LOCAL?
- *   1. Copia el fichero .mp4 en  app/src/main/res/raw/
- *   2. En crearListaVideos() añade:
- *        new Video("Título", "2:30 · Flamenco", "Descripción",
- *            R.drawable.mi_thumbnail,
- *            "android.resource://com.andalucia_app/" + R.raw.mi_video)
- * ════════════════════════════════════════════════════════════════
- */
 public class VideosFragment extends Fragment {
 
     private VideoAdapter adapter;
@@ -57,10 +37,6 @@ public class VideosFragment extends Fragment {
         return view;
     }
 
-    /**
-     * Al salir del fragmento liberamos el reproductor activo
-     * para evitar fugas de memoria y que el audio siga sonando.
-     */
     @Override
     public void onPause() {
         super.onPause();
@@ -77,13 +53,6 @@ public class VideosFragment extends Fragment {
         }
     }
 
-    // ─────────────────────────────────────────────────────────────
-    //  Catálogo de vídeos
-    //
-    //  Los tres primeros usan vídeos de muestra públicos (BigBuckBunny
-    //  y Elephant Dream de Blender Foundation, dominio público).
-    //  Sustitúyelos por tus propias URLs o recursos raw.
-    // ─────────────────────────────────────────────────────────────
     private List<Video> crearListaVideos() {
         List<Video> lista = new ArrayList<>();
 
@@ -96,7 +65,7 @@ public class VideosFragment extends Fragment {
                 "android.resource://com.andalucia_app/" + R.raw.video_iuuu
         ));
 
-        // Vídeo 1
+        // Vídeo 2
         lista.add(new Video(
                 "Pim Pam",
                 "00:39 · Categoría España",
@@ -105,7 +74,7 @@ public class VideosFragment extends Fragment {
                 "android.resource://com.andalucia_app/" + R.raw.video_pimpam
         ));
 
-        // Vídeo 1
+        // Vídeo 3
         lista.add(new Video(
                 "Patica Quemándose",
                 "00:37 · Categoría Gemelos",
@@ -113,7 +82,7 @@ public class VideosFragment extends Fragment {
                 R.drawable.videos,
                 "android.resource://com.andalucia_app/" + R.raw.video_patica
         ));
-        // Vídeo 2
+        // Vídeo 4
         lista.add(new Video(
                 "Awana wana king kong",
                 "1:14 · Categoría Pureza",
@@ -122,7 +91,7 @@ public class VideosFragment extends Fragment {
                 "android.resource://com.andalucia_app/" + R.raw.video_awanakingkong
         ));
 
-        // Vídeo 3
+        // Vídeo 5
         lista.add(new Video(
                 "Bellotas",
                 "00:59 · Categoría Viejos",
@@ -131,7 +100,7 @@ public class VideosFragment extends Fragment {
                 "android.resource://com.andalucia_app/" + R.raw.video_bellotas
         ));
 
-        // Vídeo 4
+        // Vídeo 6
         lista.add(new Video(
                 "Puestada",
                 "00:34 · Categoría DROGADOS",
