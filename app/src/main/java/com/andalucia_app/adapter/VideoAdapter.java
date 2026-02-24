@@ -1,8 +1,8 @@
 package com.andalucia_app.adapter;
 
-import android.app.Activity;
+
 import android.content.Context;
-import android.content.pm.ActivityInfo;
+
 import android.graphics.Bitmap;
 import android.media.MediaMetadataRetriever;
 import android.net.Uri;
@@ -10,7 +10,7 @@ import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
@@ -35,7 +35,6 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
     private final List<Video> videos;
     private ExoPlayer activePlayer = null;
     private VideoViewHolder activeHolder = null;
-    private boolean isFullscreen = false;
 
     public VideoAdapter(List<Video> videos) {
         this.videos = videos;
@@ -111,7 +110,6 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
         newHolder.playerView.setPlayer(player);
         newHolder.showPlayer();
         newHolder.setPauseIcon();
-        newHolder.btnFullscreen.setImageResource(R.drawable.ic_fullscreen_enter);
 
         // 7. Listener de fin de reproduccion
         final ExoPlayer playerRef = player;
@@ -131,7 +129,6 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
         // 8. Guardar estado
         activePlayer = player;
         activeHolder = newHolder;
-        isFullscreen = false;
     }
 
     public void releaseActivePlayer() {
@@ -146,30 +143,6 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
             activeHolder.setPlayIcon();
             activeHolder = null;
         }
-        isFullscreen = false;
-    }
-
-    void toggleFullscreen(Context context, VideoViewHolder holder) {
-        if (!(context instanceof Activity)) return;
-        Activity activity = (Activity) context;
-        isFullscreen = !isFullscreen;
-
-        if (isFullscreen) {
-            activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
-            activity.getWindow().getDecorView().setSystemUiVisibility(
-                    View.SYSTEM_UI_FLAG_FULLSCREEN
-                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                            | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
-            holder.btnFullscreen.setImageResource(R.drawable.ic_fullscreen_exit);
-        } else {
-            activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT);
-            activity.getWindow().getDecorView().setSystemUiVisibility(
-                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
-            holder.btnFullscreen.setImageResource(R.drawable.ic_fullscreen_enter);
-        }
     }
 
     // ViewHolder como clase publica estatica para evitar warning de visibilidad
@@ -182,9 +155,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
         TextView tvDuracion;
         TextView tvDescripcion;
         LinearLayout llVolumen;
-        LinearLayout llFullscreenRow;
         SeekBar seekBarVolumen;
-        ImageButton btnFullscreen;
 
         public VideoViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -195,9 +166,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
             tvDuracion      = itemView.findViewById(R.id.tv_video_duracion);
             tvDescripcion   = itemView.findViewById(R.id.tv_video_descripcion);
             llVolumen       = itemView.findViewById(R.id.ll_volumen);
-            llFullscreenRow = itemView.findViewById(R.id.ll_fullscreen_row);
             seekBarVolumen  = itemView.findViewById(R.id.seekBarVolumen);
-            btnFullscreen   = itemView.findViewById(R.id.btn_fullscreen);
         }
 
         public void bind(Video video) {
@@ -226,9 +195,6 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
             });
 
             fabPlay.setOnClickListener(v -> playVideo(itemView.getContext(), this, video));
-
-            btnFullscreen.setImageResource(R.drawable.ic_fullscreen_enter);
-            btnFullscreen.setOnClickListener(v -> toggleFullscreen(itemView.getContext(), this));
         }
 
         void setPlayIcon()  { fabPlay.setImageResource(android.R.drawable.ic_media_play); }
@@ -239,7 +205,6 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
             fabPlay.setVisibility(View.VISIBLE);
             playerView.setVisibility(View.GONE);
             llVolumen.setVisibility(View.GONE);
-            llFullscreenRow.setVisibility(View.GONE);
         }
 
         void showPlayer() {
@@ -247,7 +212,6 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
             fabPlay.setVisibility(View.GONE);
             playerView.setVisibility(View.VISIBLE);
             llVolumen.setVisibility(View.VISIBLE);
-            llFullscreenRow.setVisibility(View.VISIBLE);
         }
     }
 
