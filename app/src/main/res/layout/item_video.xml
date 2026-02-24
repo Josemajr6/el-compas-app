@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    ═══════════════════════════════════════════════════════════════
-    ITEM VÍDEO
-    Cada tarjeta contiene:
-      · Thumbnail / PlayerView de ExoPlayer con controles nativos
-      · Título del vídeo
-      · Descripción breve
-    Sigue la estética de item_personaje.xml
-    ═══════════════════════════════════════════════════════════════
--->
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="4dp"
@@ -27,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- ── Player / Thumbnail container ── -->
+        <!-- ZONA REPRODUCTOR -->
         <FrameLayout
             android:id="@+id/fl_player_container"
             android:layout_width="0dp"
@@ -37,7 +28,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <!-- Thumbnail (visible antes de reproducir) -->
             <ImageView
                 android:id="@+id/iv_thumbnail"
                 android:layout_width="match_parent"
@@ -45,7 +35,6 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/videos" />
 
-            <!-- ExoPlayer PlayerView (ocupa todo el container) -->
             <androidx.media3.ui.PlayerView
                 android:id="@+id/player_view"
                 android:layout_width="match_parent"
@@ -57,19 +46,18 @@
                 app:controller_layout_id="@layout/exo_player_control_view"
                 app:surface_type="surface_view" />
 
-            <!-- Botón Play superpuesto sobre el thumbnail -->
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab_play"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:src="@android:drawable/ic_media_play"
+                android:contentDescription="Reproducir"
                 app:backgroundTint="@color/tile_coral"
                 app:tint="#FDFBF7"
                 app:fabSize="normal"
                 app:elevation="6dp" />
 
-            <!-- Badge "HD" decorativo -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -87,7 +75,108 @@
 
         </FrameLayout>
 
-        <!-- ── Bloque de texto ── -->
+        <!-- VOLUMEN - visible solo durante reproduccion -->
+        <LinearLayout
+            android:id="@+id/ll_volumen"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:visibility="gone"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="4dp"
+            tools:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@id/fl_player_container"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@android:drawable/ic_lock_silent_mode"
+                android:scaleType="fitCenter"
+                app:tint="@color/sage_green"
+                android:alpha="0.8"
+                android:contentDescription="Volumen bajo" />
+
+            <SeekBar
+                android:id="@+id/seekBarVolumen"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:max="100"
+                android:progress="100"
+                android:progressTint="@color/sage_green"
+                android:thumbTint="@color/tile_coral"
+                android:progressBackgroundTint="@color/yellow_sun" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@android:drawable/ic_lock_silent_mode_off"
+                android:scaleType="fitCenter"
+                app:tint="@color/sage_green"
+                android:alpha="0.8"
+                android:contentDescription="Volumen alto" />
+
+        </LinearLayout>
+
+        <!-- PANTALLA COMPLETA - visible solo durante reproduccion -->
+        <LinearLayout
+            android:id="@+id/ll_fullscreen_row"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end|center_vertical"
+            android:visibility="gone"
+            android:paddingStart="16dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="6dp"
+            tools:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@id/ll_volumen"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Pantalla completa"
+                android:textColor="#A0A0A0"
+                android:textSize="11sp"
+                android:fontFamily="sans-serif" />
+
+            <ImageButton
+                android:id="@+id/btn_fullscreen"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:src="@drawable/ic_fullscreen_enter"
+                android:background="@drawable/bg_circle_decor_cream"
+                app:tint="@color/sage_green"
+                android:contentDescription="Pantalla completa" />
+
+        </LinearLayout>
+
+        <!-- SEPARADOR -->
+        <View
+            android:id="@+id/divider_video"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/yellow_sun"
+            android:alpha="0.8"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/ll_fullscreen_row"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- BLOQUE TEXTO - igual que el original -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -96,35 +185,32 @@
             android:paddingEnd="20dp"
             android:paddingTop="14dp"
             android:paddingBottom="18dp"
-            app:layout_constraintTop_toBottomOf="@id/fl_player_container"
+            app:layout_constraintTop_toBottomOf="@id/divider_video"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <!-- Línea decorativa (igual que en personajes) -->
             <View
                 android:layout_width="36dp"
                 android:layout_height="3dp"
                 android:background="@color/tile_coral"
                 android:layout_marginBottom="10dp" />
 
-            <!-- Título del vídeo -->
             <TextView
                 android:id="@+id/tv_video_titulo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Título del vídeo"
+                android:text="Titulo del video"
                 android:textColor="@color/text_dark_brown"
                 android:textSize="18sp"
                 android:fontFamily="serif"
                 android:textStyle="bold"
                 android:lineSpacingMultiplier="1.1" />
 
-            <!-- Duración / categoría -->
             <TextView
                 android:id="@+id/tv_video_duracion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0:00 · Categoría"
+                android:text="0:00 · Categoria"
                 android:textColor="@color/tile_coral"
                 android:textSize="11sp"
                 android:fontFamily="sans-serif-medium"
@@ -132,12 +218,11 @@
                 android:layout_marginTop="3dp"
                 android:layout_marginBottom="8dp" />
 
-            <!-- Descripción -->
             <TextView
                 android:id="@+id/tv_video_descripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Descripción del vídeo"
+                android:text="Descripcion del video"
                 android:textColor="#6B5050"
                 android:textSize="13.5sp"
                 android:lineSpacingMultiplier="1.55"

@@ -1,11 +1,19 @@
 package com.andalucia_app.adapter;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
+import android.graphics.Bitmap;
+import android.media.MediaMetadataRetriever;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,44 +27,26 @@ import com.andalucia_app.R;
 import com.andalucia_app.entity.Video;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.HashMap;
 import java.util.List;
 
-/**
- * ════════════════════════════════════════════════════════════════
- * VideoAdapter
- * ────────────────────────────────────────────────────────────────
- * Gestión inteligente de un único ExoPlayer activo a la vez:
- *   · Al pulsar Play en una tarjeta se libera el reproductor
- *     anterior y se inicializa uno nuevo para la tarjeta actual.
- *   · Al hacer scroll fuera de la vista el reproductor se pausa
- *     automáticamente (onViewRecycled / onViewDetachedFromWindow).
- *   · Se recuerda qué ViewHolder tiene el player activo para
- *     poder liberarlo correctamente.
- * ════════════════════════════════════════════════════════════════
- */
 public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHolder> {
 
     private final List<Video> videos;
-
-    // ── Estado global del reproductor activo ──────────────────────
-    private ExoPlayer       activePlayer      = null;
-    private VideoViewHolder activeHolder      = null;
-    // ─────────────────────────────────────────────────────────────
+    private ExoPlayer activePlayer = null;
+    private VideoViewHolder activeHolder = null;
+    private boolean isFullscreen = false;
 
     public VideoAdapter(List<Video> videos) {
         this.videos = videos;
     }
 
-    // ─────────────────────────────────────────────────────────────
-    //  RecyclerView callbacks
-    // ─────────────────────────────────────────────────────────────
-
     @NonNull
     @Override
     public VideoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
+        View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_video, parent, false);
-        return new VideoViewHolder(view);
+        return new VideoViewHolder(v);
     }
 
     @Override
@@ -69,132 +59,234 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
         return videos.size();
     }
 
-    /** Cuando el ViewHolder sale del RecyclerView, liberar si es el activo */
     @Override
     public void onViewRecycled(@NonNull VideoViewHolder holder) {
         super.onViewRecycled(holder);
-        if (holder == activeHolder) {
-            releaseActivePlayer();
+        if (holder == activeHolder && activePlayer != null) {
+            activePlayer.pause();
+            holder.playerView.setPlayer(null);
         }
     }
 
     @Override
     public void onViewDetachedFromWindow(@NonNull VideoViewHolder holder) {
         super.onViewDetachedFromWindow(holder);
-        if (holder == activeHolder) {
-            if (activePlayer != null) {
-                activePlayer.pause();
-            }
+        if (holder == activeHolder && activePlayer != null) {
+            activePlayer.pause();
+            holder.setPlayIcon();
         }
     }
 
-    // ─────────────────────────────────────────────────────────────
-    //  Gestión del reproductor global
-    // ─────────────────────────────────────────────────────────────
+    // FIX CRASH: previousHolder guardado ANTES de nullificar activeHolder
+    void playVideo(Context context, VideoViewHolder newHolder, Video video) {
 
-    /**
-     * Inicializa (o reutiliza) un ExoPlayer en el holder dado.
-     * Si hay otro player activo, lo libera primero.
-     */
-    private void playVideo(Context context, VideoViewHolder newHolder, Video video) {
+        // 1. Guardar referencia anterior en variable LOCAL antes de tocar nada
+        VideoViewHolder previousHolder = activeHolder;
 
-        // 1. Liberar el reproductor anterior si existe y es distinto
-        if (activeHolder != null && activeHolder != newHolder) {
-            releaseActivePlayer();
-            // Restaurar UI del holder anterior
-            activeHolder.showThumbnail();
+        // 2. Liberar player anterior
+        if (activePlayer != null) {
+            activePlayer.stop();
+            activePlayer.release();
+            activePlayer = null;
         }
 
-        // 2. Crear nuevo ExoPlayer
+        // 3. Restaurar UI anterior usando la variable local (no null)
+        if (previousHolder != null && previousHolder != newHolder) {
+            previousHolder.playerView.setPlayer(null);
+            previousHolder.showThumbnail();
+        }
+        activeHolder = null;
+
+        // 4. Nuevo player
         ExoPlayer player = new ExoPlayer.Builder(context).build();
         player.setMediaItem(MediaItem.fromUri(video.getVideoUrl()));
         player.prepare();
         player.setPlayWhenReady(true);
 
-        // 3. Vincular con la vista
+        // 5. Volumen inicial al 100%
+        float vol = newHolder.seekBarVolumen.getProgress() / 100f;
+        player.setVolume(vol);
+
+        // 6. Vincular vista
         newHolder.playerView.setPlayer(player);
         newHolder.showPlayer();
+        newHolder.setPauseIcon();
+        newHolder.btnFullscreen.setImageResource(R.drawable.ic_fullscreen_enter);
 
-        // 4. Listener para cuando termine
+        // 7. Listener de fin de reproduccion
+        final ExoPlayer playerRef = player;
+        final VideoViewHolder holderRef = newHolder;
         player.addListener(new Player.Listener() {
             @Override
             public void onPlaybackStateChanged(int state) {
-                if (state == Player.STATE_ENDED) {
-                    player.seekTo(0);
-                    player.pause();
-                    newHolder.showThumbnail();
-                    releaseActivePlayer();
+                if (state == Player.STATE_ENDED && activePlayer == playerRef) {
+                    playerRef.seekTo(0);
+                    playerRef.pause();
+                    holderRef.showThumbnail();
+                    holderRef.setPlayIcon();
                 }
             }
         });
 
-        // 5. Guardar referencias activas
+        // 8. Guardar estado
         activePlayer = player;
         activeHolder = newHolder;
+        isFullscreen = false;
     }
 
-    /** Libera el reproductor activo y limpia referencias */
     public void releaseActivePlayer() {
         if (activePlayer != null) {
+            activePlayer.stop();
             activePlayer.release();
             activePlayer = null;
         }
         if (activeHolder != null) {
             activeHolder.playerView.setPlayer(null);
+            activeHolder.showThumbnail();
+            activeHolder.setPlayIcon();
             activeHolder = null;
+        }
+        isFullscreen = false;
+    }
+
+    void toggleFullscreen(Context context, VideoViewHolder holder) {
+        if (!(context instanceof Activity)) return;
+        Activity activity = (Activity) context;
+        isFullscreen = !isFullscreen;
+
+        if (isFullscreen) {
+            activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+            activity.getWindow().getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+            holder.btnFullscreen.setImageResource(R.drawable.ic_fullscreen_exit);
+        } else {
+            activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT);
+            activity.getWindow().getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+            holder.btnFullscreen.setImageResource(R.drawable.ic_fullscreen_enter);
         }
     }
 
-    // ─────────────────────────────────────────────────────────────
-    //  ViewHolder
-    // ─────────────────────────────────────────────────────────────
+    // ViewHolder como clase publica estatica para evitar warning de visibilidad
+    public class VideoViewHolder extends RecyclerView.ViewHolder {
 
-    class VideoViewHolder extends RecyclerView.ViewHolder {
+        PlayerView playerView;
+        ImageView ivThumbnail;
+        FloatingActionButton fabPlay;
+        TextView tvTitulo;
+        TextView tvDuracion;
+        TextView tvDescripcion;
+        LinearLayout llVolumen;
+        LinearLayout llFullscreenRow;
+        SeekBar seekBarVolumen;
+        ImageButton btnFullscreen;
 
-        final PlayerView             playerView;
-        final ImageView              ivThumbnail;
-        final FloatingActionButton   fabPlay;
-        final TextView               tvTitulo;
-        final TextView               tvDuracion;
-        final TextView               tvDescripcion;
-
-        VideoViewHolder(@NonNull View itemView) {
+        public VideoViewHolder(@NonNull View itemView) {
             super(itemView);
-            playerView    = itemView.findViewById(R.id.player_view);
-            ivThumbnail   = itemView.findViewById(R.id.iv_thumbnail);
-            fabPlay       = itemView.findViewById(R.id.fab_play);
-            tvTitulo      = itemView.findViewById(R.id.tv_video_titulo);
-            tvDuracion    = itemView.findViewById(R.id.tv_video_duracion);
-            tvDescripcion = itemView.findViewById(R.id.tv_video_descripcion);
+            playerView      = itemView.findViewById(R.id.player_view);
+            ivThumbnail     = itemView.findViewById(R.id.iv_thumbnail);
+            fabPlay         = itemView.findViewById(R.id.fab_play);
+            tvTitulo        = itemView.findViewById(R.id.tv_video_titulo);
+            tvDuracion      = itemView.findViewById(R.id.tv_video_duracion);
+            tvDescripcion   = itemView.findViewById(R.id.tv_video_descripcion);
+            llVolumen       = itemView.findViewById(R.id.ll_volumen);
+            llFullscreenRow = itemView.findViewById(R.id.ll_fullscreen_row);
+            seekBarVolumen  = itemView.findViewById(R.id.seekBarVolumen);
+            btnFullscreen   = itemView.findViewById(R.id.btn_fullscreen);
         }
 
-        void bind(Video video) {
+        public void bind(Video video) {
             tvTitulo.setText(video.getTitulo());
             tvDuracion.setText(video.getDuracionCategoria());
             tvDescripcion.setText(video.getDescripcion());
-            ivThumbnail.setImageResource(video.getThumbnailResId());
 
-            // Asegurar estado inicial (thumbnail visible, player oculto)
             showThumbnail();
 
-            // Click en FAB → reproducir
-            fabPlay.setOnClickListener(v ->
-                    playVideo(itemView.getContext(), this, video)
-            );
+            // Thumbnail: fallback rapido + extraccion real en background
+            ivThumbnail.setImageResource(R.drawable.videos);
+            new ThumbnailTask(ivThumbnail, itemView.getContext()).execute(video.getVideoUrl());
+
+            // Volumen al 100%
+            seekBarVolumen.setMax(100);
+            seekBarVolumen.setProgress(100);
+            seekBarVolumen.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                @Override
+                public void onProgressChanged(SeekBar sb, int progress, boolean fromUser) {
+                    if (fromUser && activeHolder == VideoViewHolder.this && activePlayer != null) {
+                        activePlayer.setVolume(progress / 100f);
+                    }
+                }
+                @Override public void onStartTrackingTouch(SeekBar sb) {}
+                @Override public void onStopTrackingTouch(SeekBar sb) {}
+            });
+
+            fabPlay.setOnClickListener(v -> playVideo(itemView.getContext(), this, video));
+
+            btnFullscreen.setImageResource(R.drawable.ic_fullscreen_enter);
+            btnFullscreen.setOnClickListener(v -> toggleFullscreen(itemView.getContext(), this));
         }
 
-        /** Muestra thumbnail + botón play, oculta PlayerView */
+        void setPlayIcon()  { fabPlay.setImageResource(android.R.drawable.ic_media_play); }
+        void setPauseIcon() { fabPlay.setImageResource(android.R.drawable.ic_media_pause); }
+
         void showThumbnail() {
             ivThumbnail.setVisibility(View.VISIBLE);
             fabPlay.setVisibility(View.VISIBLE);
             playerView.setVisibility(View.GONE);
+            llVolumen.setVisibility(View.GONE);
+            llFullscreenRow.setVisibility(View.GONE);
         }
 
-        /** Oculta thumbnail, muestra PlayerView */
         void showPlayer() {
             ivThumbnail.setVisibility(View.GONE);
             fabPlay.setVisibility(View.GONE);
             playerView.setVisibility(View.VISIBLE);
+            llVolumen.setVisibility(View.VISIBLE);
+            llFullscreenRow.setVisibility(View.VISIBLE);
+        }
+    }
+
+    // Thumbnail en background thread
+    private static class ThumbnailTask extends AsyncTask<String, Void, Bitmap> {
+
+        private final ImageView target;
+        private final Context ctx;
+
+        ThumbnailTask(ImageView iv, Context context) {
+            this.target = iv;
+            this.ctx = context;
+        }
+
+        @Override
+        protected Bitmap doInBackground(String... params) {
+            String url = params[0];
+            MediaMetadataRetriever retriever = new MediaMetadataRetriever();
+            try {
+                if (url.startsWith("android.resource://")) {
+                    retriever.setDataSource(ctx, Uri.parse(url));
+                } else {
+                    retriever.setDataSource(url, new HashMap<>());
+                }
+                return retriever.getFrameAtTime(0, MediaMetadataRetriever.OPTION_CLOSEST_SYNC);
+            } catch (Exception e) {
+                return null;
+            } finally {
+                try {
+                    retriever.release();
+                } catch (Exception ignored) {}
+            }
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap bmp) {
+            if (bmp != null && target != null) {
+                target.setImageBitmap(bmp);
+            }
         }
     }
 }
