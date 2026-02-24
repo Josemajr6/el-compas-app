@@ -91,17 +91,17 @@ public class VideosFragment extends Fragment {
         lista.add(new Video(
                 "Patica Quemándose",
                 "00:37 · Categoría Gemelos",
-                "Top seis quemadas del patica comiendo.",
+                "Top 6 quemadas del patica comiendo.",
                 R.drawable.videos,
-                "android.resource://com.andalucia_app/" + R.raw.mi_video_1
+                "android.resource://com.andalucia_app/" + R.raw.video_patica
         ));
         // Vídeo 2
         lista.add(new Video(
-                "Juan enfuscado fan",
-                "0:34 · Categoría Palmilla",
-                "Juan mata a todo el mundo",
+                "Awana wana king kong",
+                "1:14 · Categoría Pureza",
+                "¿Hay algo más andaluz que ese video?",
                 R.drawable.videos,
-                "android.resource://com.andalucia_app/" + R.raw.mi_video_2
+                "android.resource://com.andalucia_app/" + R.raw.video_awanakingkong
         ));
 
         // Vídeo 3
@@ -110,7 +110,7 @@ public class VideosFragment extends Fragment {
                 "00:59 · Categoría Viejos",
                 "Yo eh venio a por bellotas. A robar.",
                 R.drawable.videos,
-                "android.resource://com.andalucia_app/" + R.raw.mi_video_3
+                "android.resource://com.andalucia_app/" + R.raw.video_bellotas
         ));
 
         // Vídeo 4
@@ -119,7 +119,7 @@ public class VideosFragment extends Fragment {
                 "00:34 · Categoría DROGADOS",
                 "Un yonki esta drogado en su coche.",
                 R.drawable.videos,
-                "android.resource://com.andalucia_app/" + R.raw.mi_video_4
+                "android.resource://com.andalucia_app/" + R.raw.video_puestada
         ));
 
         return lista;
