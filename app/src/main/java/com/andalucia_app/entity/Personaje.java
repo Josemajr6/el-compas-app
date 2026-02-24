@@ -7,10 +7,6 @@ public class Personaje {
     private final String  descripcion;
     private final String  categoria;
     private final int     imagenResId;
-    /**
-     * true  → CENTER_CROP: la foto rellena toda la cuadrícula (puede recortar bordes)
-     * false → FIT_CENTER:  se ve la foto entera sin recorte
-     */
     private final boolean rellenarImagen;
 
     public Personaje(String nombre, String epoca, String descripcion,

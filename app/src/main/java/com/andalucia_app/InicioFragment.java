@@ -20,10 +20,7 @@ public class InicioFragment extends Fragment {
         return view;
     }
 
-    // ─────────────────────────────────────────────────────────────
-    //  Clicks en las cards del grid
-    // ─────────────────────────────────────────────────────────────
-
+    // Botones del inicio que llevan a los fragment
     private void setupCardClicks(View root) {
         View cardPersonajes  = root.findViewById(R.id.card_personajes);
         View cardVideos      = root.findViewById(R.id.card_videos);
@@ -47,10 +44,7 @@ public class InicioFragment extends Fragment {
                     animatePress(v, () -> navigateTo(new AnimacionesFragment(), 4)));
     }
 
-    // ─────────────────────────────────────────────────────────────
-    //  Animación de pulsación en la card
-    // ─────────────────────────────────────────────────────────────
-
+    //  animación de cuando pulsamos en la tarjeta
     private void animatePress(View v, Runnable onEnd) {
         v.animate()
                 .scaleX(0.93f)
@@ -66,10 +60,6 @@ public class InicioFragment extends Fragment {
                                 .start()
                 ).start();
     }
-
-    // ─────────────────────────────────────────────────────────────
-    //  Navegación: carga fragment y actualiza el nav
-    // ─────────────────────────────────────────────────────────────
 
     private void navigateTo(Fragment fragment, int navIndex) {
         if (getActivity() instanceof MainActivity) {

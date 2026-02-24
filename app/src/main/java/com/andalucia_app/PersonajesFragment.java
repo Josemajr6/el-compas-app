@@ -30,21 +30,7 @@ public class PersonajesFragment extends Fragment {
         return view;
     }
 
-    /**
-     * ════════════════════════════════════════════════════════
-     *  ¿CÓMO AÑADIR UN PERSONAJE NUEVO?
-     *
-     *  lista.add(new Personaje(
-     *      "Nombre",
-     *      "Año · Ciudad",
-     *      "Descripción.",
-     *      "Categoría",
-     *      R.drawable.tu_foto,
-     *      true    ← true  = rellena la cuadrícula (centerCrop)
-     *              ← false = foto entera sin recorte (fitCenter)
-     *  ));
-     * ════════════════════════════════════════════════════════
-     */
+    // método con la lista de personajes
     private List<Personaje> crearListaPersonajes() {
         List<Personaje> lista = new ArrayList<>();
 

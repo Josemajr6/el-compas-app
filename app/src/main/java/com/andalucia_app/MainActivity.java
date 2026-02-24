@@ -13,23 +13,14 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-/**
- * ════════════════════════════════════════════════════════════════
- * MainActivity — Bottom Nav dark_green
- * ════════════════════════════════════════════════════════════════
- */
 public class MainActivity extends AppCompatActivity {
 
-    // ── Iconos ───────────────────────────────────────────────────
     private ImageView iconInicio, iconPersonajes, iconVideos, iconSonidos, iconAnimaciones;
 
-    // ── Puntos indicadores ───────────────────────────────────────
     private View dotInicio, dotPersonajes, dotVideos, dotSonidos, dotAnimaciones;
 
-    // ── Botones ──────────────────────────────────────────────────
     private LinearLayout btnInicio, btnPersonajes, btnVideos, btnSonidos, btnAnimaciones;
 
-    // ── Colores ──────────────────────────────────────────────────
     private int colorActivo;
     private int colorInactivo;
     private int colorVideosFondo;
@@ -54,10 +45,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // ─────────────────────────────────────────────────────────────
-    //  Inicialización de views
-    // ─────────────────────────────────────────────────────────────
-
+    // inicializar las views
     private void initNavViews() {
         btnInicio      = findViewById(R.id.nav_btn_inicio);
         btnPersonajes  = findViewById(R.id.nav_btn_personajes);
@@ -77,10 +65,6 @@ public class MainActivity extends AppCompatActivity {
         dotSonidos     = findViewById(R.id.nav_dot_sonidos);
         dotAnimaciones = findViewById(R.id.nav_dot_animaciones);
     }
-
-    // ─────────────────────────────────────────────────────────────
-    //  Click listeners
-    // ─────────────────────────────────────────────────────────────
 
     private void setupClickListeners() {
         btnInicio.setOnClickListener(v -> {
@@ -120,23 +104,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // ─────────────────────────────────────────────────────────────
-    //  API pública — usada desde InicioFragment
-    // ─────────────────────────────────────────────────────────────
-
-    /**
-     * Carga un fragment Y actualiza el estado visual del nav.
-     * Llamar desde InicioFragment cuando el usuario pulsa una card.
-     */
     public void selectNavItem(int index, Fragment fragment) {
         animateBounce(getIconForIndex(index));
         setNavSelected(index);
         cargarFragment(fragment);
     }
-
-    // ─────────────────────────────────────────────────────────────
-    //  Estado visual del nav
-    // ─────────────────────────────────────────────────────────────
 
     private void setNavSelected(int index) {
         selectedItem = index;
@@ -190,10 +162,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // ─────────────────────────────────────────────────────────────
-    //  Animación rebote al seleccionar
-    // ─────────────────────────────────────────────────────────────
-
     private void animateBounce(View target) {
         if (target == null) return;
         ObjectAnimator scaleX = ObjectAnimator.ofFloat(target, "scaleX", 1f, 1.35f, 1f);
@@ -206,11 +174,6 @@ public class MainActivity extends AppCompatActivity {
         set.playTogether(scaleX, scaleY);
         set.start();
     }
-
-    // ─────────────────────────────────────────────────────────────
-    //  Carga de fragmentos
-    // ─────────────────────────────────────────────────────────────
-
     private void cargarFragment(Fragment fragment) {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();

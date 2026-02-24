@@ -7,8 +7,8 @@ public class Sonido {
     private final String artista;
     private final String duracion;
     private final String categoria;
-    private final int    portadaResId;
-    private final int    audioResId;
+    private final int portadaResId;
+    private final int audioResId;
 
     public Sonido(String titulo, String artista, String duracion,
                   String categoria, int portadaResId, int audioResId) {
