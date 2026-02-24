@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Icono VÍDEOS — cámara de vídeo moderna.
+    Va sobre fondo circular sage_green, así que el tinte
+    se fuerza a blanco desde MainActivity.
+    Colócalo en:  app/src/main/res/drawable/ic_nav_videos.xml
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Cuerpo de la cámara -->
+    <path
+        android:pathData="M2,8 Q2,7 3,7 L14,7 Q15,7 15,8 L15,16 Q15,17 14,17 L3,17 Q2,17 2,16 Z"
+        android:strokeColor="@color/background_light"
+        android:strokeWidth="1.9"
+        android:strokeLineJoin="round"
+        android:fillColor="#00000000" />
+
+    <!-- Triángulo lateral (objetivo de la cámara) -->
+    <path
+        android:pathData="M15,10 L22,7.5 L22,16.5 L15,14 Z"
+        android:strokeColor="@color/background_light"
+        android:strokeWidth="1.9"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillColor="#00000000" />
+
+    <!-- Punto de grabación (círculo pequeño dentro) -->
+    <path
+        android:pathData="M7.5,12 A1.5,1.5 0 1 1 7.5,12.01 Z"
+        android:fillColor="@color/background_light" />
+
+</vector>
