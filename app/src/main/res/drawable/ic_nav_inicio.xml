@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Icono INICIO — casa moderna con tejado triangular y puerta.
+    Estilo: stroke limpio, líneas redondeadas. Profesional.
+    Colócalo en:  app/src/main/res/drawable/ic_nav_inicio.xml
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Tejado / triángulo -->
+    <path
+        android:pathData="M3,10.5 L12,3 L21,10.5"
+        android:strokeColor="@color/sage_green"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillColor="#00000000" />
+
+    <!-- Cuerpo de la casa -->
+    <path
+        android:pathData="M5,10.5 L5,20 Q5,21 6,21 L18,21 Q19,21 19,20 L19,10.5"
+        android:strokeColor="@color/sage_green"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillColor="#00000000" />
+
+    <!-- Puerta centrada -->
+    <path
+        android:pathData="M9.5,21 L9.5,15.5 Q9.5,14 11,14 L13,14 Q14.5,14 14.5,15.5 L14.5,21"
+        android:strokeColor="@color/sage_green"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillColor="#00000000" />
+
+</vector>

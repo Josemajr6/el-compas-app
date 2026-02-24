@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Icono PERSONAJES — silueta de dos personas.
+    Estilo: stroke limpio, redondeado. Apps como Spotify, Apple Music.
+    Colócalo en:  app/src/main/res/drawable/ic_nav_personajes.xml
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Cabeza persona principal -->
+    <path
+        android:pathData="M12,4 A3.5,3.5 0 1 1 12,11 A3.5,3.5 0 1 1 12,4 Z"
+        android:strokeColor="@color/sage_green"
+        android:strokeWidth="1.9"
+        android:fillColor="#00000000" />
+
+    <!-- Cuerpo / hombros persona principal -->
+    <path
+        android:pathData="M5,21 C5,17.134 8.134,14 12,14 C15.866,14 19,17.134 19,21"
+        android:strokeColor="@color/sage_green"
+        android:strokeWidth="1.9"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+
+    <!-- Cabeza persona secundaria (más pequeña, a la derecha) -->
+    <path
+        android:pathData="M18.5,6.5 A2.5,2.5 0 1 1 18.5,11.5 A2.5,2.5 0 1 1 18.5,6.5 Z"
+        android:strokeColor="@color/sage_green"
+        android:strokeWidth="1.6"
+        android:fillColor="#00000000" />
+
+    <!-- Hombros persona secundaria -->
+    <path
+        android:pathData="M15,21 C15.2,19 16.6,17.5 18.5,17.5 C20.4,17.5 21.8,19 22,21"
+        android:strokeColor="@color/sage_green"
+        android:strokeWidth="1.6"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+
+</vector>

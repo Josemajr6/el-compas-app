@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Punto indicador del ítem activo en la bottom nav.
+    Color: text_dark_brown (marrón oscuro de la paleta).
+    Colócalo en:  app/src/main/res/drawable/nav_dot_active.xml
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="@color/text_dark_brown" />
+</shape>
