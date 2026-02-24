@@ -76,42 +76,42 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
         }
     }
 
-    // FIX CRASH: previousHolder guardado ANTES de nullificar activeHolder
+    // guardado ANTES de nullificar activeHolder
     void playVideo(Context context, VideoViewHolder newHolder, Video video) {
 
-        // 1. Guardar referencia anterior en variable LOCAL antes de tocar nada
+        // Guardar referencia anterior en variable LOCAL antes de tocar nada
         VideoViewHolder previousHolder = activeHolder;
 
-        // 2. Liberar player anterior
+        // Liberar player anterior
         if (activePlayer != null) {
             activePlayer.stop();
             activePlayer.release();
             activePlayer = null;
         }
 
-        // 3. Restaurar UI anterior usando la variable local (no null)
+        // restaurar UI anterior usando la variable local (no null)
         if (previousHolder != null && previousHolder != newHolder) {
             previousHolder.playerView.setPlayer(null);
             previousHolder.showThumbnail();
         }
         activeHolder = null;
 
-        // 4. Nuevo player
+        // Nuevo player
         ExoPlayer player = new ExoPlayer.Builder(context).build();
         player.setMediaItem(MediaItem.fromUri(video.getVideoUrl()));
         player.prepare();
         player.setPlayWhenReady(true);
 
-        // 5. Volumen inicial al 100%
+        // Volumen inicil al 100%
         float vol = newHolder.seekBarVolumen.getProgress() / 100f;
         player.setVolume(vol);
 
-        // 6. Vincular vista
+        // Vincular vista
         newHolder.playerView.setPlayer(player);
         newHolder.showPlayer();
         newHolder.setPauseIcon();
 
-        // 7. Listener de fin de reproduccion
+        // Listener de fin de reproduccion
         final ExoPlayer playerRef = player;
         final VideoViewHolder holderRef = newHolder;
         player.addListener(new Player.Listener() {
@@ -126,7 +126,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
             }
         });
 
-        // 8. Guardar estado
+        // Guardamos estado
         activePlayer = player;
         activeHolder = newHolder;
     }
@@ -176,7 +176,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
 
             showThumbnail();
 
-            // Thumbnail: fallback rapido + extraccion real en background
+            // miniatura
             ivThumbnail.setImageResource(R.drawable.videos);
             new ThumbnailTask(ivThumbnail, itemView.getContext()).execute(video.getVideoUrl());
 

@@ -14,16 +14,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import android.widget.TextView;
 import java.util.List;
 
-/**
- * ════════════════════════════════════════════════════════════════
- * AnimacionAdapter — Control simplificado: solo Play/Pausa
- * ────────────────────────────────────────────────────────────────
- * · Un único botón FAB Play/Pausa.
- * · Al pulsar Play: la animación continúa desde donde estaba.
- * · Al pulsar Pausa: la animación se detiene con fade-out suave.
- * · Animación de rebote al cambiar estado.
- * ════════════════════════════════════════════════════════════════
- */
 public class AnimacionAdapter extends RecyclerView.Adapter<AnimacionAdapter.AnimacionViewHolder> {
 
     private final List<Animacion> animaciones;
@@ -61,10 +51,6 @@ public class AnimacionAdapter extends RecyclerView.Adapter<AnimacionAdapter.Anim
         holder.lottieView.pauseAnimation();
         holder.setPlayIcon();
     }
-
-    // ─────────────────────────────────────────────────────────────
-    //  ViewHolder
-    // ─────────────────────────────────────────────────────────────
 
     static class AnimacionViewHolder extends RecyclerView.ViewHolder {
 

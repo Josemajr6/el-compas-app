@@ -19,7 +19,7 @@ public class SplashActivity extends AppCompatActivity {
         lottieAnimationView.addAnimatorListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
-                // No hacemos nada al empezar
+                // no hacemos nada al empezar
             }
 
             @Override
