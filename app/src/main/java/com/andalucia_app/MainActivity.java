@@ -16,12 +16,6 @@ import androidx.fragment.app.FragmentTransaction;
 /**
  * ════════════════════════════════════════════════════════════════
  * MainActivity — Bottom Nav dark_green
- * ────────────────────────────────────────────────────────────────
- * Fondo píldora : dark_green  (#232B27)
- * Iconos inactivos : blanco crema (#FDFBF7)
- * Icono activo : yellow_sun  (#E8D0A5)  — cálido sobre el verde
- * Punto indicador : yellow_sun
- * Botón central (Vídeos) : tile_coral — acento sobre dark_green
  * ════════════════════════════════════════════════════════════════
  */
 public class MainActivity extends AppCompatActivity {
@@ -36,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout btnInicio, btnPersonajes, btnVideos, btnSonidos, btnAnimaciones;
 
     // ── Colores ──────────────────────────────────────────────────
-    private int colorActivo;    // yellow_sun  — icono seleccionado
-    private int colorInactivo;  // blanco crema — iconos no seleccionados
-    private int colorVideosFondo; // blanco crema sobre tile_coral del círculo central
+    private int colorActivo;
+    private int colorInactivo;
+    private int colorVideosFondo;
 
     private int selectedItem = 0;
 
@@ -48,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         colorActivo      = ContextCompat.getColor(this, R.color.yellow_sun);
-        colorInactivo    = ContextCompat.getColor(this, R.color.background_light); // #FDFBF7
+        colorInactivo    = ContextCompat.getColor(this, R.color.background_light);
         colorVideosFondo = ContextCompat.getColor(this, R.color.background_light);
 
         initNavViews();
@@ -127,6 +121,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // ─────────────────────────────────────────────────────────────
+    //  API pública — usada desde InicioFragment
+    // ─────────────────────────────────────────────────────────────
+
+    /**
+     * Carga un fragment Y actualiza el estado visual del nav.
+     * Llamar desde InicioFragment cuando el usuario pulsa una card.
+     */
+    public void selectNavItem(int index, Fragment fragment) {
+        animateBounce(getIconForIndex(index));
+        setNavSelected(index);
+        cargarFragment(fragment);
+    }
+
+    // ─────────────────────────────────────────────────────────────
     //  Estado visual del nav
     // ─────────────────────────────────────────────────────────────
 
@@ -144,7 +152,6 @@ public class MainActivity extends AppCompatActivity {
                 dotPersonajes.setVisibility(View.VISIBLE);
                 break;
             case 2:
-                // El ícono de vídeos siempre en crema (fondo tile_coral del círculo)
                 iconVideos.setColorFilter(colorVideosFondo);
                 dotVideos.setVisibility(View.VISIBLE);
                 break;
@@ -162,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
     private void resetAllNav() {
         iconInicio.setColorFilter(colorInactivo);
         iconPersonajes.setColorFilter(colorInactivo);
-        iconVideos.setColorFilter(colorVideosFondo);  // siempre crema
+        iconVideos.setColorFilter(colorVideosFondo);
         iconSonidos.setColorFilter(colorInactivo);
         iconAnimaciones.setColorFilter(colorInactivo);
 
@@ -173,11 +180,22 @@ public class MainActivity extends AppCompatActivity {
         dotAnimaciones.setVisibility(View.INVISIBLE);
     }
 
+    private ImageView getIconForIndex(int index) {
+        switch (index) {
+            case 1: return iconPersonajes;
+            case 2: return iconVideos;
+            case 3: return iconSonidos;
+            case 4: return iconAnimaciones;
+            default: return iconInicio;
+        }
+    }
+
     // ─────────────────────────────────────────────────────────────
     //  Animación rebote al seleccionar
     // ─────────────────────────────────────────────────────────────
 
     private void animateBounce(View target) {
+        if (target == null) return;
         ObjectAnimator scaleX = ObjectAnimator.ofFloat(target, "scaleX", 1f, 1.35f, 1f);
         ObjectAnimator scaleY = ObjectAnimator.ofFloat(target, "scaleY", 1f, 1.35f, 1f);
         scaleX.setDuration(320);

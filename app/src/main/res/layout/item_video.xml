@@ -52,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:src="@android:drawable/ic_media_play"
-                android:contentDescription="Reproducir"
+                android:contentDescription="@string/video_reproducir_desc"
                 app:backgroundTint="@color/tile_coral"
                 app:tint="#FDFBF7"
                 app:fabSize="normal"
@@ -63,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="top|end"
                 android:layout_margin="10dp"
-                android:text="HD"
+                android:text="@string/video_badge_hd"
                 android:textColor="#FDFBF7"
                 android:textSize="10sp"
                 android:textStyle="bold"
@@ -99,7 +99,7 @@
                 android:scaleType="fitCenter"
                 app:tint="@color/sage_green"
                 android:alpha="0.8"
-                android:contentDescription="Volumen bajo" />
+                android:contentDescription="@string/video_volumen_bajo_desc" />
 
             <SeekBar
                 android:id="@+id/seekBarVolumen"
@@ -121,7 +121,7 @@
                 android:scaleType="fitCenter"
                 app:tint="@color/sage_green"
                 android:alpha="0.8"
-                android:contentDescription="Volumen alto" />
+                android:contentDescription="@string/video_volumen_alto_desc" />
 
         </LinearLayout>
 
@@ -139,7 +139,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- BLOQUE TEXTO - igual que el original -->
+        <!-- BLOQUE TEXTO -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -162,7 +162,7 @@
                 android:id="@+id/tv_video_titulo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Titulo del video"
+                android:text="@string/video_titulo_preview"
                 android:textColor="@color/text_dark_brown"
                 android:textSize="18sp"
                 android:fontFamily="serif"
@@ -173,7 +173,7 @@
                 android:id="@+id/tv_video_duracion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0:00 · Categoria"
+                android:text="@string/video_duracion_preview"
                 android:textColor="@color/tile_coral"
                 android:textSize="11sp"
                 android:fontFamily="sans-serif-medium"
@@ -185,7 +185,7 @@
                 android:id="@+id/tv_video_descripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Descripcion del video"
+                android:text="@string/video_descripcion_preview"
                 android:textColor="#6B5050"
                 android:textSize="13.5sp"
                 android:lineSpacingMultiplier="1.55"

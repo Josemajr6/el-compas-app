@@ -117,7 +117,7 @@ public class SonidosFragment extends Fragment {
 
         // ── CANCIÓN 2 ──────────────────────────────────────────
         lista.add(new Sonido(
-                "Estilo Gitano - Angeliyo el Blanco",              // string: sonido_2_titulo
+                "Estilo Gitano",              // string: sonido_2_titulo
                 "Angeliyo el Blanco", // string: sonido_2_artista
                 "2:04",                     // string: sonido_2_duracion
                 "Flamenco",               // string: sonido_2_categoria
@@ -149,7 +149,7 @@ public class SonidosFragment extends Fragment {
 
         // ── CANCIÓN 5 ──────────────────────────────────────────
         lista.add(new Sonido(
-                "La Esperanza de María - Virgen de los Reyes",                // string: sonido_4_titulo
+                "La Esperanza de María",                // string: sonido_4_titulo
                 "Virgen de los Reyes",              // string: sonido_4_artista
                 "4:37",                     // string: sonido_4_duracion
                 "Marcha Procesional",                    // string: sonido_4_categoria

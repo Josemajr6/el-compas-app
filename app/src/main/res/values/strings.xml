@@ -1,101 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- APP -->
+    <!-- ══════════════════════════════════════════════════════════
+         APP
+         ══════════════════════════════════════════════════════════ -->
     <string name="app_name">El Compás</string>
+    <string name="app_version">v1.0</string>
 
-    <!-- BOTTOM NAVIGATION -->
+    <!-- ══════════════════════════════════════════════════════════
+         BOTTOM NAVIGATION
+         ══════════════════════════════════════════════════════════ -->
     <string name="nav_inicio">Inicio</string>
     <string name="nav_personajes">Personajes</string>
     <string name="nav_videos">Vídeos</string>
     <string name="nav_sonidos">Sonidos</string>
     <string name="nav_animaciones">Animaciones</string>
 
-    <!-- FRAGMENT INICIO: Hero -->
+    <!-- ══════════════════════════════════════════════════════════
+         FRAGMENT INICIO — Hero
+         ══════════════════════════════════════════════════════════ -->
     <string name="inicio_hero_subtitulo">Descubre la esencia de Andalucía</string>
 
-    <!-- FRAGMENT INICIO: Bienvenida -->
+    <!-- Hero chips -->
+    <string name="chip_cultura">Cultura</string>
+    <string name="chip_musica">Música</string>
+    <string name="chip_historia">Historia</string>
+    <string name="chip_arte">Arte</string>
+
+    <!-- ══════════════════════════════════════════════════════════
+         FRAGMENT INICIO — Bienvenida
+         ══════════════════════════════════════════════════════════ -->
     <string name="inicio_seccion_tag">Bienvenido/a</string>
     <string name="inicio_titulo_linea1">El alma del sur</string>
     <string name="inicio_titulo_linea2">en tu bolsillo</string>
     <string name="inicio_descripcion">El Compás es tu guía digital para explorar la riqueza cultural de Andalucía. Desde los personajes que forjaron nuestra historia hasta los sonidos que hacen vibrar el duende, todo está aquí, en el compás que marca el ritmo del sur.</string>
 
-    <!-- FRAGMENT INICIO: Cards -->
+    <!-- ══════════════════════════════════════════════════════════
+         FRAGMENT INICIO — Cards de navegación
+         ══════════════════════════════════════════════════════════ -->
+    <string name="explorar_titulo">Explora El Compás</string>
     <string name="card_personajes_titulo">Personajes Ilustres</string>
     <string name="card_videos_titulo">Andalucía en Vídeo</string>
     <string name="card_sonidos_titulo">Sonidos</string>
     <string name="card_animaciones_titulo">Animaciones</string>
 
-    <!-- FRAGMENT INICIO: Cita -->
+    <!-- ══════════════════════════════════════════════════════════
+         FRAGMENT INICIO — Cita / pull-quote
+         ══════════════════════════════════════════════════════════ -->
     <string name="inicio_cita">Andalucía no se explica,\nse siente en cada compás.</string>
 
-    <!-- FRAGMENT PERSONAJES: Header -->
+    <!-- ══════════════════════════════════════════════════════════
+         FRAGMENT INICIO — ¿Sabías que…?
+         ══════════════════════════════════════════════════════════ -->
+    <string name="sabias_que_tag">¿Sabías que…?</string>
+    <string name="sabias_que_texto">Andalucía es la comunidad autónoma más extensa de España, con 8 provincias y más de 8 millones de habitantes.</string>
+
+    <!-- ══════════════════════════════════════════════════════════
+         FRAGMENT INICIO — Sección autores
+         ══════════════════════════════════════════════════════════ -->
+    <string name="autores_seccion_tag">Proyecto DAM</string>
+    <string name="autores_instituto">IES Francisco Rodríguez Marín</string>
+    <string name="autores_localidad">Osuna, Sevilla</string>
+    <string name="autor_1_nombre">Juan José Gamero López</string>
+    <string name="autor_2_nombre">José Manuel Jiménez Rodríguez</string>
+    <string name="autor_3_nombre">Rafael Lázaro Díaz</string>
+    <string name="autores_ciclo">Desarrollo de Aplicaciones Multiplataforma</string>
+    <string name="autores_curso">Curso 2025–2026 · DAM</string>
+
+    <!-- ══════════════════════════════════════════════════════════
+         FRAGMENT PERSONAJES
+         ══════════════════════════════════════════════════════════ -->
     <string name="personajes_titulo">Personajes Ilustres</string>
     <string name="personajes_subtitulo">Figuras que forjaron el alma andaluza</string>
 
-    <!-- ITEM PERSONAJE: Textos de preview en el editor de layouts -->
+    <!-- Textos de preview en el editor de layouts -->
     <string name="personaje_nombre_ejemplo">Nombre del Personaje</string>
     <string name="personaje_epoca_ejemplo">Año – Año · Ciudad</string>
     <string name="personaje_desc_ejemplo">Breve descripción del personaje y su aportación a la cultura e historia andaluza.</string>
 
-    <!-- OTROS FRAGMENTS -->
+    <!-- ══════════════════════════════════════════════════════════
+         FRAGMENT VÍDEOS
+         ══════════════════════════════════════════════════════════ -->
     <string name="videos_titulo">Andalucía en Vídeo</string>
-    <string name="sonidos_titulo">Sonidos de Andalucía</string>
-    <string name="animaciones_titulo">Animando Andalucía</string>
-
     <string name="videos_subtitulo">La esencia del sur, en movimiento</string>
 
-    <!--
-    ═══════════════════════════════════════════════════════════════
-    STRINGS PARA AÑADIR EN  app/src/main/res/values/strings.xml
-    ───────────────────────────────────────────────────────────────
-    Copia y pega estos <string> dentro del bloque <resources>
-    de tu fichero strings.xml existente.
-    ═══════════════════════════════════════════════════════════════
--->
-
-    <!-- ── FRAGMENT SONIDOS: Header ───────────────────────────── -->
+    <!-- ══════════════════════════════════════════════════════════
+         FRAGMENT SONIDOS
+         ══════════════════════════════════════════════════════════ -->
+    <string name="sonidos_titulo">Sonidos de Andalucía</string>
     <string name="sonidos_subtitulo">El ritmo del sur en tu oído</string>
 
-    <!-- ── ITEM SONIDO: Textos de preview en el editor ────────── -->
-    <!-- Estos solo se usan como valor por defecto en el XML;      -->
-    <!-- los datos reales vienen del adapter / lista de Sonido.    -->
+    <!-- Textos de preview en el editor de layouts -->
     <string name="sonido_titulo_preview">Título de la Canción</string>
     <string name="sonido_artista_preview">Artista</string>
     <string name="sonido_categoria_preview">Flamenco</string>
     <string name="sonido_duracion_preview">0:00</string>
     <string name="sonido_tiempo_preview">0:00</string>
 
-    <!-- ── CANCIÓN 1 ────────────────────────────────────────────  -->
-    <!-- Modifica estos valores para cambiar los textos mostrados  -->
-    <string name="sonido_1_titulo">Entre Dos Aguas</string>
-    <string name="sonido_1_artista">Paco de Lucía</string>
-    <string name="sonido_1_duracion">4:23</string>
-    <string name="sonido_1_categoria">Flamenco</string>
+    <!-- Catálogo de canciones (datos reales del SonidosFragment) -->
+    <string name="sonido_1_titulo">Estamos a Martes</string>
+    <string name="sonido_1_artista">Gordo Master</string>
+    <string name="sonido_1_duracion">4:05</string>
+    <string name="sonido_1_categoria">Break</string>
 
-    <!-- ── CANCIÓN 2 ──────────────────────────────────────────── -->
-    <string name="sonido_2_titulo">Ay Mi Perro</string>
-    <string name="sonido_2_artista">Los Romeros de la Puebla</string>
-    <string name="sonido_2_duracion">3:10</string>
-    <string name="sonido_2_categoria">Sevillanas</string>
+    <string name="sonido_2_titulo">Fardos Hardtech</string>
+    <string name="sonido_2_artista">Jc Reyes</string>
+    <string name="sonido_2_duracion">2:00</string>
+    <string name="sonido_2_categoria">HardTech</string>
 
-    <!-- ── CANCIÓN 3 ──────────────────────────────────────────── -->
-    <string name="sonido_3_titulo">La Zarzamora</string>
-    <string name="sonido_3_artista">Lola Flores</string>
-    <string name="sonido_3_duracion">2:58</string>
-    <string name="sonido_3_categoria">Copla</string>
+    <string name="sonido_3_titulo">El Patio x Ayer 2</string>
+    <string name="sonido_3_artista">Pepe y Vizio &amp; Anuel AA</string>
+    <string name="sonido_3_duracion">7:21</string>
+    <string name="sonido_3_categoria">Mashup</string>
 
-    <!-- ── CANCIÓN 4 ──────────────────────────────────────────── -->
-    <string name="sonido_4_titulo">A Tu Vera</string>
-    <string name="sonido_4_artista">Lola Flores</string>
-    <string name="sonido_4_duracion">3:33</string>
-    <string name="sonido_4_categoria">Rumba</string>
+    <string name="sonido_4_titulo">Estilo Gitano</string>
+    <string name="sonido_4_artista">Angeliyo el Blanco</string>
+    <string name="sonido_4_duracion">2:04</string>
+    <string name="sonido_4_categoria">Flamenco</string>
 
-    <!-- ── FRAGMENT ANIMACIONES: Header ────────────────────────── -->
-    <!-- animaciones_titulo ya existe: "Animando Andalucía"         -->
+    <string name="sonido_5_titulo">Diabla x Bandoleros</string>
+    <string name="sonido_5_artista">Los Diozes &amp; Don Omar</string>
+    <string name="sonido_5_duracion">6:18</string>
+    <string name="sonido_5_categoria">Mashup</string>
+
+    <string name="sonido_6_titulo">Maricarmen</string>
+    <string name="sonido_6_artista">La Pegatina</string>
+    <string name="sonido_6_duracion">2:21</string>
+    <string name="sonido_6_categoria">Tech</string>
+
+    <string name="sonido_7_titulo">La Esperanza de María</string>
+    <string name="sonido_7_artista">Virgen de los Reyes</string>
+    <string name="sonido_7_duracion">4:37</string>
+    <string name="sonido_7_categoria">Marcha Procesional</string>
+
+    <!-- ══════════════════════════════════════════════════════════
+         FRAGMENT ANIMACIONES
+         ══════════════════════════════════════════════════════════ -->
+    <string name="animaciones_titulo">Animando Andalucía</string>
     <string name="animaciones_subtitulo">El duende del sur, en movimiento</string>
 
-    <!-- ── Accesibilidad: botones de control ───────────────────── -->
+    <!-- Accesibilidad: botones de control -->
     <string name="anim_btn_play_pausa_desc">Reproducir o pausar animación</string>
     <string name="anim_btn_reiniciar_desc">Reiniciar animación</string>
+
+    <!-- ══════════════════════════════════════════════════════════
+         ITEM ANIMACIÓN — previews hardcodeados en item_animacion.xml
+         ══════════════════════════════════════════════════════════ -->
+    <string name="anim_titulo_preview">Título de la Animación</string>
+    <string name="anim_descripcion_preview">Descripción de la animación</string>
+    <string name="anim_categoria_preview">Categoría</string>
+
+    <!-- ══════════════════════════════════════════════════════════
+         ITEM SONIDO — contentDescriptions en item_sonido.xml
+         ══════════════════════════════════════════════════════════ -->
+    <string name="sonido_cancion_anterior_desc">Canción anterior</string>
+    <string name="sonido_reproducir_pausar_desc">Reproducir o pausar</string>
+    <string name="sonido_cancion_siguiente_desc">Canción siguiente</string>
+
+    <!-- ══════════════════════════════════════════════════════════
+         ITEM VÍDEO — textos hardcodeados en item_video.xml
+         ══════════════════════════════════════════════════════════ -->
+    <string name="video_titulo_preview">Titulo del video</string>
+    <string name="video_duracion_preview">0:00 · Categoria</string>
+    <string name="video_descripcion_preview">Descripcion del video</string>
+    <string name="video_reproducir_desc">Reproducir</string>
+    <string name="video_badge_hd">HD</string>
+    <string name="video_volumen_bajo_desc">Volumen bajo</string>
+    <string name="video_volumen_alto_desc">Volumen alto</string>
+
+    <!-- ══════════════════════════════════════════════════════════
+         EXO PLAYER CONTROL VIEW — textos hardcodeados
+         ══════════════════════════════════════════════════════════ -->
+    <string name="exo_retroceder_desc">Retroceder</string>
+    <string name="exo_reproducir_pausar_desc">Reproducir/Pausar</string>
+    <string name="exo_avanzar_desc">Avanzar</string>
+    <string name="exo_separador_tiempo"> / </string>
+    <string name="exo_pantalla_completa_desc">Pantalla completa</string>
+
 </resources>

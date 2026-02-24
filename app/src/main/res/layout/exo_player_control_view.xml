@@ -3,9 +3,6 @@
     CONTROLADOR PERSONALIZADO DE EXOPLAYER
     Sustituye al control por defecto para que encaje con la paleta
     de colores de El Compás (sage_green, tile_coral, albero_cream).
-
-    Este fichero se referencia desde item_video.xml con:
-        app:controller_layout_id="@layout/exo_player_control_view"
 -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -41,7 +38,7 @@
             android:src="@drawable/exo_icon_rewind"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:tint="#FDFBF7"
-            android:contentDescription="Retroceder" />
+            android:contentDescription="@string/exo_retroceder_desc" />
 
         <!-- Play / Pause -->
         <ImageButton
@@ -53,7 +50,7 @@
             android:src="@drawable/exo_icon_play"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:tint="@color/tile_coral"
-            android:contentDescription="Reproducir/Pausar" />
+            android:contentDescription="@string/exo_reproducir_pausar_desc" />
 
         <!-- Avanzar 10 s -->
         <ImageButton
@@ -63,7 +60,7 @@
             android:src="@drawable/exo_icon_fastforward"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:tint="#FDFBF7"
-            android:contentDescription="Avanzar" />
+            android:contentDescription="@string/exo_avanzar_desc" />
 
         <!-- Tiempo actual -->
         <TextView
@@ -78,7 +75,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" / "
+            android:text="@string/exo_separador_tiempo"
             android:textColor="#A0A0A0"
             android:textSize="11sp" />
 
@@ -105,7 +102,7 @@
             android:src="@drawable/exo_icon_fullscreen_enter"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:tint="@color/sage_green"
-            android:contentDescription="Pantalla completa" />
+            android:contentDescription="@string/exo_pantalla_completa_desc" />
 
     </LinearLayout>
 

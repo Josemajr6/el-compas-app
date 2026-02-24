@@ -63,7 +63,7 @@
                     android:id="@+id/tv_sonido_titulo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Título de la Canción"
+                    android:text="@string/sonido_titulo_preview"
                     android:textColor="@color/text_dark_brown"
                     android:textSize="16sp"
                     android:fontFamily="serif"
@@ -76,7 +76,7 @@
                     android:id="@+id/tv_sonido_artista"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Artista"
+                    android:text="@string/sonido_artista_preview"
                     android:textColor="@color/sage_green"
                     android:textSize="12sp"
                     android:fontFamily="sans-serif-medium"
@@ -94,7 +94,7 @@
                         android:id="@+id/tv_sonido_categoria"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Flamenco"
+                        android:text="@string/sonido_categoria_preview"
                         android:textColor="#FDFBF7"
                         android:textSize="10sp"
                         android:fontFamily="sans-serif-medium"
@@ -110,7 +110,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="0:00"
+                        android:text="@string/sonido_duracion_preview"
                         android:textColor="#A0A0A0"
                         android:textSize="11sp"
                         android:fontFamily="sans-serif-medium"
@@ -142,7 +142,7 @@
                 android:id="@+id/tv_tiempo_actual"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0:00"
+                android:text="@string/sonido_tiempo_preview"
                 android:textColor="@color/text_dark_brown"
                 android:textSize="11sp"
                 android:fontFamily="sans-serif-medium"
@@ -163,7 +163,7 @@
                 android:id="@+id/tv_sonido_duracion_total"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0:00"
+                android:text="@string/sonido_duracion_preview"
                 android:textColor="#A0A0A0"
                 android:textSize="11sp"
                 android:fontFamily="sans-serif-medium"
@@ -189,7 +189,7 @@
                 android:src="@android:drawable/ic_media_previous"
                 android:background="@drawable/bg_circle_decor_cream"
                 android:tint="@color/text_dark_brown"
-                android:contentDescription="Canción anterior"
+                android:contentDescription="@string/sonido_cancion_anterior_desc"
                 android:layout_marginEnd="20dp" />
 
             <!-- Botón Play / Pausa -->
@@ -202,7 +202,7 @@
                 app:tint="#FDFBF7"
                 app:fabSize="normal"
                 app:elevation="4dp"
-                android:contentDescription="Reproducir o pausar" />
+                android:contentDescription="@string/sonido_reproducir_pausar_desc" />
 
             <!-- Botón Siguiente -->
             <ImageButton
@@ -212,7 +212,7 @@
                 android:src="@android:drawable/ic_media_next"
                 android:background="@drawable/bg_circle_decor_cream"
                 android:tint="@color/text_dark_brown"
-                android:contentDescription="Canción siguiente"
+                android:contentDescription="@string/sonido_cancion_siguiente_desc"
                 android:layout_marginStart="20dp" />
 
         </LinearLayout>
@@ -225,14 +225,14 @@
             android:gravity="center_vertical"
             android:layout_marginTop="12dp">
 
-            <!-- Icono volumen bajo -->
             <ImageView
                 android:layout_width="18dp"
                 android:layout_height="18dp"
                 android:src="@android:drawable/ic_lock_silent_mode"
                 android:scaleType="fitCenter"
                 android:tint="@color/sage_green"
-                android:alpha="0.8" />
+                android:alpha="0.8"
+                android:contentDescription="@string/video_volumen_bajo_desc" />
 
             <SeekBar
                 android:id="@+id/seekBarVolumen"
@@ -247,14 +247,14 @@
                 android:thumbTint="@color/tile_coral"
                 android:progressBackgroundTint="@color/yellow_sun" />
 
-            <!-- Icono volumen alto -->
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@android:drawable/ic_lock_silent_mode_off"
                 android:scaleType="fitCenter"
                 android:tint="@color/sage_green"
-                android:alpha="0.8" />
+                android:alpha="0.8"
+                android:contentDescription="@string/video_volumen_alto_desc" />
 
         </LinearLayout>
 

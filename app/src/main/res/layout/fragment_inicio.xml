@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="@color/background_light"
     android:fillViewport="true"
-    android:clipToPadding="false">
+    android:clipToPadding="false"
+    android:overScrollMode="never">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,77 +16,162 @@
         android:paddingBottom="110dp">
 
         <!-- ══════════════════════════════════════════════════
-             HERO
+             HERO — fondo degradado + decoraciones geométricas
              ══════════════════════════════════════════════════ -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="320dp"
             android:background="@drawable/bg_hero_header"
             android:clipChildren="false"
-            android:clipToPadding="false">
+            android:clipToPadding="false"
+            android:elevation="0dp">
 
+            <!-- Círculos decorativos — capas de profundidad -->
             <View
-                android:layout_width="200dp"
-                android:layout_height="200dp"
+                android:layout_width="220dp"
+                android:layout_height="220dp"
                 android:background="@drawable/bg_circle_decor"
-                android:alpha="0.10"
-                android:layout_marginTop="-60dp"
-                android:layout_marginEnd="-60dp"
+                android:alpha="0.08"
+                android:layout_marginTop="-70dp"
+                android:layout_marginEnd="-70dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <View
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
                 android:background="@drawable/bg_circle_decor_cream"
-                android:alpha="0.15"
-                android:layout_marginStart="20dp"
+                android:alpha="0.12"
+                android:layout_marginStart="30dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintVertical_bias="0.7" />
+                app:layout_constraintVertical_bias="0.65" />
 
             <View
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
                 android:background="@drawable/bg_circle_decor"
-                android:alpha="0.08"
-                android:layout_marginEnd="30dp"
-                android:layout_marginBottom="-20dp"
+                android:alpha="0.07"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="-30dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
+            <!-- Pequeño círculo acento coral -->
+            <View
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/bg_circle_decor_cream"
+                android:alpha="0.18"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <!-- Logo principal -->
             <ImageView
                 android:id="@+id/iv_logo_hero"
                 android:layout_width="0dp"
-                android:layout_height="95dp"
+                android:layout_height="100dp"
                 android:src="@drawable/logo"
                 android:scaleType="fitCenter"
                 android:adjustViewBounds="true"
-                android:layout_marginStart="36dp"
-                android:layout_marginEnd="36dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toTopOf="@+id/tv_hero_subtitulo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintVertical_chainStyle="packed"
-                app:layout_constraintVertical_bias="0.40" />
+                app:layout_constraintVertical_bias="0.38" />
 
+            <!-- Subtítulo bajo el logo -->
             <TextView
                 android:id="@+id/tv_hero_subtitulo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/inicio_hero_subtitulo"
                 android:textColor="#FDFBF7"
-                android:textSize="13sp"
-                android:letterSpacing="0.10"
+                android:textSize="12.5sp"
+                android:letterSpacing="0.14"
                 android:fontFamily="sans-serif-light"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="52dp"
+                android:alpha="0.85"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="30dp"
                 app:layout_constraintTop_toBottomOf="@id/iv_logo_hero"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/fl_hero_chips"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
+
+            <!-- Chips de categorías en el hero -->
+            <LinearLayout
+                android:id="@+id/fl_hero_chips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="28dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chip_cultura"
+                    android:textColor="#FDFBF7"
+                    android:textSize="10sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:background="@drawable/hero_chip_bg"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chip_musica"
+                    android:textColor="#FDFBF7"
+                    android:textSize="10sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:background="@drawable/hero_chip_bg"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chip_historia"
+                    android:textColor="#FDFBF7"
+                    android:textSize="10sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:background="@drawable/hero_chip_bg"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chip_arte"
+                    android:textColor="#FDFBF7"
+                    android:textSize="10sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:background="@drawable/hero_chip_bg" />
+
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -99,7 +185,6 @@
 
         <!-- ══════════════════════════════════════════════════
              SECCIÓN BIENVENIDA
-             paddingTop aumentado para separar del wave
              ══════════════════════════════════════════════════ -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -107,7 +192,7 @@
             android:orientation="vertical"
             android:paddingStart="24dp"
             android:paddingEnd="24dp"
-            android:paddingTop="20dp"
+            android:paddingTop="16dp"
             android:paddingBottom="4dp">
 
             <TextView
@@ -120,32 +205,58 @@
                 android:fontFamily="sans-serif-medium"
                 android:textAllCaps="true" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/inicio_titulo_linea1"
-                android:textColor="@color/text_dark_brown"
-                android:textSize="34sp"
-                android:fontFamily="serif"
-                android:textStyle="bold"
-                android:lineSpacingMultiplier="1.0"
-                android:layout_marginTop="4dp" />
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="4dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/inicio_titulo_linea2"
-                android:textColor="@color/tile_coral"
-                android:textSize="34sp"
-                android:fontFamily="serif"
-                android:textStyle="bold"
-                android:lineSpacingMultiplier="1.0" />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/inicio_titulo_linea1"
+                        android:textColor="@color/text_dark_brown"
+                        android:textSize="32sp"
+                        android:fontFamily="serif"
+                        android:textStyle="bold"
+                        android:lineSpacingMultiplier="0.95" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/inicio_titulo_linea2"
+                        android:textColor="@color/tile_coral"
+                        android:textSize="32sp"
+                        android:fontFamily="serif"
+                        android:textStyle="bold"
+                        android:lineSpacingMultiplier="0.95" />
+
+                </LinearLayout>
+
+                <!-- Icono decorativo a la derecha del título -->
+                <ImageView
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:src="@drawable/icono"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    android:alpha="0.18"
+                    android:layout_marginStart="8dp" />
+
+            </LinearLayout>
 
             <View
                 android:layout_width="44dp"
                 android:layout_height="3dp"
                 android:background="@color/tile_coral"
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="12dp"
                 android:layout_marginBottom="14dp" />
 
             <TextView
@@ -153,68 +264,93 @@
                 android:layout_height="wrap_content"
                 android:text="@string/inicio_descripcion"
                 android:textColor="#6A5050"
-                android:textSize="14.5sp"
-                android:lineSpacingMultiplier="1.65"
+                android:textSize="14sp"
+                android:lineSpacingMultiplier="1.7"
                 android:fontFamily="sans-serif" />
 
         </LinearLayout>
 
         <!-- ══════════════════════════════════════════════════
-             FILA DE ICONOS CULTURALES  (max 26dp, baja res)
+             FILA DE ICONOS CULTURALES
              ══════════════════════════════════════════════════ -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
-            android:paddingTop="22dp"
+            android:paddingTop="20dp"
             android:paddingBottom="4dp"
             android:paddingStart="12dp"
             android:paddingEnd="12dp">
 
-            <ImageView android:layout_width="26dp" android:layout_height="26dp"
+            <ImageView android:layout_width="24dp" android:layout_height="24dp"
                 android:src="@drawable/abanico" android:scaleType="fitCenter"
-                android:adjustViewBounds="true" android:layout_marginEnd="16dp"/>
-
-            <ImageView android:layout_width="26dp" android:layout_height="26dp"
+                android:adjustViewBounds="true" android:layout_marginEnd="14dp"/>
+            <ImageView android:layout_width="24dp" android:layout_height="24dp"
                 android:src="@drawable/aplausos" android:scaleType="fitCenter"
-                android:adjustViewBounds="true" android:layout_marginEnd="16dp"/>
-
-            <ImageView android:layout_width="26dp" android:layout_height="26dp"
+                android:adjustViewBounds="true" android:layout_marginEnd="14dp"/>
+            <ImageView android:layout_width="24dp" android:layout_height="24dp"
                 android:src="@drawable/flor" android:scaleType="fitCenter"
-                android:adjustViewBounds="true" android:layout_marginEnd="16dp"/>
-
-            <ImageView android:layout_width="26dp" android:layout_height="26dp"
+                android:adjustViewBounds="true" android:layout_marginEnd="14dp"/>
+            <ImageView android:layout_width="24dp" android:layout_height="24dp"
                 android:src="@drawable/pomo_guitarra" android:scaleType="fitCenter"
-                android:adjustViewBounds="true" android:layout_marginEnd="16dp"/>
-
-            <ImageView android:layout_width="26dp" android:layout_height="26dp"
+                android:adjustViewBounds="true" android:layout_marginEnd="14dp"/>
+            <ImageView android:layout_width="24dp" android:layout_height="24dp"
                 android:src="@drawable/maracas" android:scaleType="fitCenter"
-                android:adjustViewBounds="true" android:layout_marginEnd="16dp"/>
-
-            <ImageView android:layout_width="26dp" android:layout_height="26dp"
+                android:adjustViewBounds="true" android:layout_marginEnd="14dp"/>
+            <ImageView android:layout_width="24dp" android:layout_height="24dp"
                 android:src="@drawable/peineta" android:scaleType="fitCenter"
-                android:adjustViewBounds="true" android:layout_marginEnd="16dp"/>
-
-            <ImageView android:layout_width="26dp" android:layout_height="26dp"
+                android:adjustViewBounds="true" android:layout_marginEnd="14dp"/>
+            <ImageView android:layout_width="24dp" android:layout_height="24dp"
                 android:src="@drawable/decoracion" android:scaleType="fitCenter"
                 android:adjustViewBounds="true"/>
 
         </LinearLayout>
 
-        <!-- Separador sutil -->
+        <!-- Separador con gradiente -->
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/yellow_sun"
-            android:alpha="0.55"
+            android:alpha="0.5"
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"
             android:layout_marginTop="18dp"
             android:layout_marginBottom="4dp" />
 
         <!-- ══════════════════════════════════════════════════
-             GRID 2×2 DE SECCIONES
+             TÍTULO SECCIÓN EXPLORAR
+             ══════════════════════════════════════════════════ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="6dp">
+
+            <View
+                android:layout_width="4dp"
+                android:layout_height="22dp"
+                android:background="@color/tile_coral"
+                android:layout_marginEnd="10dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/explorar_titulo"
+                android:textColor="@color/text_dark_brown"
+                android:textSize="17sp"
+                android:fontFamily="serif"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════════════
+             GRID 2×2 DE SECCIONES — CLICKABLES
              ══════════════════════════════════════════════════ -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -222,158 +358,267 @@
             android:orientation="vertical"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
-            android:paddingTop="12dp">
+            android:paddingTop="4dp">
 
-            <!-- Fila 1 -->
+            <!-- Fila 1: Personajes + Vídeos -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginBottom="12dp">
 
+                <!-- CARD PERSONAJES -->
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_personajes"
                     android:layout_width="0dp"
-                    android:layout_height="116dp"
+                    android:layout_height="130dp"
                     android:layout_weight="1"
                     android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true"
                     app:cardBackgroundColor="@color/sage_green"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="5dp"
+                    app:cardCornerRadius="22dp"
+                    app:cardElevation="6dp"
                     app:strokeWidth="0dp">
-                    <LinearLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="14dp">
-                        <ImageView
-                            android:layout_width="34dp"
-                            android:layout_height="34dp"
-                            android:src="@drawable/personajes"
-                            android:scaleType="fitCenter"
-                            android:adjustViewBounds="true"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/card_personajes_titulo"
-                            android:textColor="#FDFBF7"
-                            android:textSize="12sp"
-                            android:fontFamily="serif"
-                            android:textStyle="bold"
+                        android:layout_height="match_parent">
+                        <!-- Círculo decorativo fondo -->
+                        <View
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:background="@drawable/bg_circle_decor_cream"
+                            android:alpha="0.15"
+                            android:layout_marginEnd="-20dp"
+                            android:layout_marginBottom="-20dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
                             android:gravity="center"
-                            android:layout_marginTop="8dp"/>
-                    </LinearLayout>
+                            android:padding="16dp">
+                            <com.google.android.material.card.MaterialCardView
+                                android:layout_width="44dp"
+                                android:layout_height="44dp"
+                                app:cardBackgroundColor="#20FDFBF7"
+                                app:cardCornerRadius="14dp"
+                                app:cardElevation="0dp"
+                                app:strokeWidth="0dp">
+                                <ImageView
+                                    android:layout_width="26dp"
+                                    android:layout_height="26dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/personajes"
+                                    android:scaleType="fitCenter"
+                                    android:adjustViewBounds="true"/>
+                            </com.google.android.material.card.MaterialCardView>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/card_personajes_titulo"
+                                android:textColor="#FDFBF7"
+                                android:textSize="12sp"
+                                android:fontFamily="serif"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:layout_marginTop="10dp"/>
+
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
                 </com.google.android.material.card.MaterialCardView>
 
+                <!-- CARD VÍDEOS -->
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_videos"
                     android:layout_width="0dp"
-                    android:layout_height="116dp"
+                    android:layout_height="130dp"
                     android:layout_weight="1"
                     android:layout_marginStart="6dp"
+                    android:clickable="true"
+                    android:focusable="true"
                     app:cardBackgroundColor="@color/tile_coral"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="5dp"
+                    app:cardCornerRadius="22dp"
+                    app:cardElevation="6dp"
                     app:strokeWidth="0dp">
-                    <LinearLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="14dp">
-                        <ImageView
-                            android:layout_width="34dp"
-                            android:layout_height="34dp"
-                            android:src="@drawable/videos"
-                            android:scaleType="fitCenter"
-                            android:adjustViewBounds="true"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/card_videos_titulo"
-                            android:textColor="#FDFBF7"
-                            android:textSize="12sp"
-                            android:fontFamily="serif"
-                            android:textStyle="bold"
+                        android:layout_height="match_parent">
+                        <View
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:background="@drawable/bg_circle_decor_cream"
+                            android:alpha="0.15"
+                            android:layout_marginEnd="-20dp"
+                            android:layout_marginBottom="-20dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
                             android:gravity="center"
-                            android:layout_marginTop="8dp"/>
-                    </LinearLayout>
+                            android:padding="16dp">
+                            <com.google.android.material.card.MaterialCardView
+                                android:layout_width="44dp"
+                                android:layout_height="44dp"
+                                app:cardBackgroundColor="#20FDFBF7"
+                                app:cardCornerRadius="14dp"
+                                app:cardElevation="0dp"
+                                app:strokeWidth="0dp">
+                                <ImageView
+                                    android:layout_width="26dp"
+                                    android:layout_height="26dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/videos"
+                                    android:scaleType="fitCenter"
+                                    android:adjustViewBounds="true"/>
+                            </com.google.android.material.card.MaterialCardView>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/card_videos_titulo"
+                                android:textColor="#FDFBF7"
+                                android:textSize="12sp"
+                                android:fontFamily="serif"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:layout_marginTop="10dp"/>
+
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
                 </com.google.android.material.card.MaterialCardView>
 
             </LinearLayout>
 
-            <!-- Fila 2 -->
+            <!-- Fila 2: Sonidos + Animaciones -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginBottom="8dp">
 
+                <!-- CARD SONIDOS -->
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_sonidos"
                     android:layout_width="0dp"
-                    android:layout_height="116dp"
+                    android:layout_height="130dp"
                     android:layout_weight="1"
                     android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true"
                     app:cardBackgroundColor="@color/yellow_sun"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="5dp"
+                    app:cardCornerRadius="22dp"
+                    app:cardElevation="6dp"
                     app:strokeWidth="0dp">
-                    <LinearLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="14dp">
-                        <ImageView
-                            android:layout_width="34dp"
-                            android:layout_height="34dp"
-                            android:src="@drawable/sonidos"
-                            android:scaleType="fitCenter"
-                            android:adjustViewBounds="true"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/card_sonidos_titulo"
-                            android:textColor="@color/text_dark_brown"
-                            android:textSize="12sp"
-                            android:fontFamily="serif"
-                            android:textStyle="bold"
+                        android:layout_height="match_parent">
+                        <View
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:background="@drawable/bg_circle_decor"
+                            android:alpha="0.12"
+                            android:layout_marginEnd="-20dp"
+                            android:layout_marginBottom="-20dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
                             android:gravity="center"
-                            android:layout_marginTop="8dp"/>
-                    </LinearLayout>
+                            android:padding="16dp">
+                            <com.google.android.material.card.MaterialCardView
+                                android:layout_width="44dp"
+                                android:layout_height="44dp"
+                                app:cardBackgroundColor="#20FFFFFF"
+                                app:cardCornerRadius="14dp"
+                                app:cardElevation="0dp"
+                                app:strokeWidth="0dp">
+                                <ImageView
+                                    android:layout_width="26dp"
+                                    android:layout_height="26dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/sonidos"
+                                    android:scaleType="fitCenter"
+                                    android:adjustViewBounds="true"/>
+                            </com.google.android.material.card.MaterialCardView>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/card_sonidos_titulo"
+                                android:textColor="@color/text_dark_brown"
+                                android:textSize="12sp"
+                                android:fontFamily="serif"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:layout_marginTop="10dp"/>
+
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
                 </com.google.android.material.card.MaterialCardView>
 
+                <!-- CARD ANIMACIONES -->
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_animaciones"
                     android:layout_width="0dp"
-                    android:layout_height="116dp"
+                    android:layout_height="130dp"
                     android:layout_weight="1"
                     android:layout_marginStart="6dp"
+                    android:clickable="true"
+                    android:focusable="true"
                     app:cardBackgroundColor="@color/green_light"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="5dp"
+                    app:cardCornerRadius="22dp"
+                    app:cardElevation="6dp"
                     app:strokeWidth="0dp">
-                    <LinearLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="14dp">
-                        <ImageView
-                            android:layout_width="34dp"
-                            android:layout_height="34dp"
-                            android:src="@drawable/animaciones"
-                            android:scaleType="fitCenter"
-                            android:adjustViewBounds="true"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/card_animaciones_titulo"
-                            android:textColor="@color/text_dark_brown"
-                            android:textSize="12sp"
-                            android:fontFamily="serif"
-                            android:textStyle="bold"
+                        android:layout_height="match_parent">
+                        <View
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:background="@drawable/bg_circle_decor"
+                            android:alpha="0.12"
+                            android:layout_marginEnd="-20dp"
+                            android:layout_marginBottom="-20dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
                             android:gravity="center"
-                            android:layout_marginTop="8dp"/>
-                    </LinearLayout>
+                            android:padding="16dp">
+                            <com.google.android.material.card.MaterialCardView
+                                android:layout_width="44dp"
+                                android:layout_height="44dp"
+                                app:cardBackgroundColor="#20FFFFFF"
+                                app:cardCornerRadius="14dp"
+                                app:cardElevation="0dp"
+                                app:strokeWidth="0dp">
+                                <ImageView
+                                    android:layout_width="26dp"
+                                    android:layout_height="26dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/animaciones"
+                                    android:scaleType="fitCenter"
+                                    android:adjustViewBounds="true"/>
+                            </com.google.android.material.card.MaterialCardView>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/card_animaciones_titulo"
+                                android:textColor="@color/text_dark_brown"
+                                android:textSize="12sp"
+                                android:fontFamily="serif"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:layout_marginTop="10dp"/>
+
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
                 </com.google.android.material.card.MaterialCardView>
 
             </LinearLayout>
@@ -381,7 +626,7 @@
         </LinearLayout>
 
         <!-- ══════════════════════════════════════════════════
-             PULL-QUOTE FINAL
+             PULL-QUOTE CENTRAL
              ══════════════════════════════════════════════════ -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -389,17 +634,18 @@
             android:background="@color/sage_green"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="8dp"
             android:padding="24dp">
 
+            <!-- Esquinas redondeadas via MaterialCardView wrapper -->
             <ImageView
                 android:id="@+id/iv_icono_quote"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
                 android:src="@drawable/icono"
                 android:scaleType="fitCenter"
                 android:adjustViewBounds="true"
-                android:alpha="0.40"
+                android:alpha="0.35"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
@@ -412,7 +658,7 @@
                 android:textColor="#FDFBF7"
                 android:textSize="52sp"
                 android:fontFamily="serif"
-                android:alpha="0.40"
+                android:alpha="0.35"
                 android:layout_marginBottom="-24dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -423,26 +669,416 @@
                 android:layout_height="wrap_content"
                 android:text="@string/inicio_cita"
                 android:textColor="#FDFBF7"
-                android:textSize="17sp"
-                android:lineSpacingMultiplier="1.5"
+                android:textSize="16.5sp"
+                android:lineSpacingMultiplier="1.55"
                 android:fontFamily="serif"
                 android:textStyle="italic"
                 android:layout_marginTop="28dp"
-                android:layout_marginEnd="52dp"
+                android:layout_marginEnd="48dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <View
+                android:id="@+id/divider_cita"
                 android:layout_width="32dp"
                 android:layout_height="2dp"
                 android:background="#FDFBF7"
-                android:alpha="0.40"
+                android:alpha="0.35"
                 android:layout_marginTop="14dp"
                 app:layout_constraintTop_toBottomOf="@id/tv_cita"
                 app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- ══════════════════════════════════════════════════
+             SECCIÓN SABÍAS QUE... (dato curioso)
+             ══════════════════════════════════════════════════ -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="@color/albero_cream"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp"
+            app:strokeColor="@color/yellow_sun"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="18dp">
+
+                <!-- Icono decorativo -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    app:cardBackgroundColor="@color/yellow_sun"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="0dp">
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/flor"
+                        android:scaleType="fitCenter"
+                        android:adjustViewBounds="true" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingStart="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sabias_que_tag"
+                        android:textColor="@color/sage_green"
+                        android:textSize="10sp"
+                        android:letterSpacing="0.14"
+                        android:fontFamily="sans-serif-medium"
+                        android:textAllCaps="true" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sabias_que_texto"
+                        android:textColor="@color/text_dark_brown"
+                        android:textSize="13sp"
+                        android:lineSpacingMultiplier="1.5"
+                        android:fontFamily="sans-serif"
+                        android:layout_marginTop="4dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+        <!-- ══════════════════════════════════════════════════
+             SEPARADOR DECORATIVO
+             ══════════════════════════════════════════════════ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:paddingTop="28dp"
+            android:paddingBottom="4dp">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/yellow_sun"
+                android:alpha="0.5" />
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/flor"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:alpha="0.4" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/yellow_sun"
+                android:alpha="0.5" />
+
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════════════
+             SECCIÓN AUTORES — Premium card oscura
+             ══════════════════════════════════════════════════ -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="@color/dark_green"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="10dp"
+            app:strokeColor="#2E3D35"
+            app:strokeWidth="1dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="0dp">
+
+                <!-- Decoración circular de fondo -->
+                <View
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:background="@drawable/bg_circle_decor_cream"
+                    android:alpha="0.04"
+                    android:layout_marginEnd="-60dp"
+                    android:layout_marginTop="-60dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <!-- Header de la sección -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="20dp">
+
+                        <View
+                            android:layout_width="3dp"
+                            android:layout_height="18dp"
+                            android:background="@color/yellow_sun"
+                            android:layout_marginEnd="10dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/autores_seccion_tag"
+                            android:textColor="@color/yellow_sun"
+                            android:textSize="10sp"
+                            android:letterSpacing="0.18"
+                            android:fontFamily="sans-serif-medium"
+                            android:textAllCaps="true" />
+
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:src="@drawable/icono"
+                            android:scaleType="fitCenter"
+                            android:adjustViewBounds="true"
+                            android:alpha="0.30" />
+
+                    </LinearLayout>
+
+                    <!-- Nombre del centro -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/autores_instituto"
+                        android:textColor="#FDFBF7"
+                        android:textSize="18sp"
+                        android:fontFamily="serif"
+                        android:textStyle="bold"
+                        android:lineSpacingMultiplier="1.1"
+                        android:layout_marginBottom="4dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/autores_localidad"
+                        android:textColor="#849A8E"
+                        android:textSize="12sp"
+                        android:fontFamily="sans-serif"
+                        android:layout_marginBottom="20dp" />
+
+                    <!-- Separador -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#2E3D35"
+                        android:layout_marginBottom="20dp" />
+
+                    <!-- Autor 1 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="14dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            app:cardCornerRadius="20dp"
+                            app:cardElevation="0dp"
+                            app:strokeColor="#2E3D35"
+                            app:strokeWidth="1dp">
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/foto_juanjo"
+                                android:scaleType="centerCrop" />
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:paddingStart="14dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/autor_1_nombre"
+                                android:textColor="#FDFBF7"
+                                android:textSize="13.5sp"
+                                android:fontFamily="sans-serif-medium" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Autor 2 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="14dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            app:cardCornerRadius="20dp"
+                            app:cardElevation="0dp"
+                            app:strokeColor="#2E3D35"
+                            app:strokeWidth="1dp">
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/foto_kirri"
+                                android:scaleType="centerCrop" />
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:paddingStart="14dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/autor_2_nombre"
+                                android:textColor="#FDFBF7"
+                                android:textSize="13.5sp"
+                                android:fontFamily="sans-serif-medium" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Autor 3 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="20dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            app:cardCornerRadius="20dp"
+                            app:cardElevation="0dp"
+                            app:strokeColor="#2E3D35"
+                            app:strokeWidth="1dp">
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/foto_rafa"
+                                android:scaleType="centerCrop" />
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:paddingStart="14dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/autor_3_nombre"
+                                android:textColor="#FDFBF7"
+                                android:textSize="13.5sp"
+                                android:fontFamily="sans-serif-medium" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Footer de la card -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#2E3D35"
+                        android:layout_marginBottom="16dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/decoracion"
+                            android:scaleType="fitCenter"
+                            android:adjustViewBounds="true"
+                            android:alpha="0.5"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/autores_curso"
+                            android:textColor="#3D5248"
+                            android:textSize="11sp"
+                            android:fontFamily="sans-serif" />
+
+                        <!-- Badge versión -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/app_version"
+                            android:textColor="@color/sage_green"
+                            android:textSize="10sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            android:paddingTop="3dp"
+                            android:paddingBottom="3dp"
+                            android:background="@drawable/bg_badge_video" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Espacio final -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="12dp" />
 
     </LinearLayout>
 

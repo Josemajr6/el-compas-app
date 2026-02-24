@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background_light">
 
-    <!-- Contenedor de fragmentos -->
+    <!-- Contenedor de fragmentos — ocupa toda la pantalla incluyendo bajo el nav -->
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="0dp"
@@ -16,20 +16,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- ══════════════════════════════════════════════════
-         BOTTOM NAV — píldora flotante dark_green
-         ══════════════════════════════════════════════════ -->
+    <!-- ══════════════════════════════════════════════════════
+         BOTTOM NAV — píldora flotante de lujo
+         Fondo: dark_green  (#232B27)
+         Icono activo: yellow_sun  (#E8D0A5)
+         Icono inactivo: background_light  (#FDFBF7) con alpha
+         Botón central elevado: tile_coral  (#D88C8C)
+         ══════════════════════════════════════════════════════ -->
+
+    <!-- Sombra exterior difusa (capa inferior, más oscura y difusa) -->
+    <View
+        android:id="@+id/nav_shadow_outer"
+        android:layout_width="0dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/nav_shadow_outer"
+        android:elevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/nav_card"
         android:layout_width="0dp"
-        android:layout_height="72dp"
+        android:layout_height="68dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         app:cardBackgroundColor="@color/dark_green"
-        app:cardCornerRadius="36dp"
-        app:cardElevation="24dp"
-        app:strokeColor="#3A4A43"
+        app:cardCornerRadius="34dp"
+        app:cardElevation="20dp"
+        app:strokeColor="#2E3D35"
         app:strokeWidth="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,10 +60,10 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:gravity="center"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp">
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp">
 
-            <!-- ── NAV: INICIO ──────────────────────────────── -->
+            <!-- ── NAV: INICIO ──────────────────────────────────── -->
             <LinearLayout
                 android:id="@+id/nav_btn_inicio"
                 android:layout_width="0dp"
@@ -57,24 +76,40 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/nav_inicio">
 
-                <ImageView
-                    android:id="@+id/nav_icon_inicio"
-                    android:layout_width="26dp"
-                    android:layout_height="26dp"
-                    android:src="@drawable/ic_nav_inicio"
-                    android:scaleType="fitCenter" />
+                <FrameLayout
+                    android:layout_width="40dp"
+                    android:layout_height="40dp">
+
+                    <!-- Fondo destacado cuando está activo -->
+                    <View
+                        android:id="@+id/nav_bg_inicio"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/nav_item_active_bg"
+                        android:visibility="visible"
+                        android:alpha="0" />
+
+                    <ImageView
+                        android:id="@+id/nav_icon_inicio"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_nav_inicio"
+                        android:scaleType="fitCenter" />
+
+                </FrameLayout>
 
                 <View
                     android:id="@+id/nav_dot_inicio"
-                    android:layout_width="5dp"
-                    android:layout_height="5dp"
-                    android:layout_marginTop="4dp"
+                    android:layout_width="4dp"
+                    android:layout_height="4dp"
+                    android:layout_marginTop="3dp"
                     android:background="@drawable/nav_dot_active"
                     android:visibility="visible" />
 
             </LinearLayout>
 
-            <!-- ── NAV: PERSONAJES ──────────────────────────── -->
+            <!-- ── NAV: PERSONAJES ──────────────────────────────── -->
             <LinearLayout
                 android:id="@+id/nav_btn_personajes"
                 android:layout_width="0dp"
@@ -87,24 +122,39 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/nav_personajes">
 
-                <ImageView
-                    android:id="@+id/nav_icon_personajes"
-                    android:layout_width="26dp"
-                    android:layout_height="26dp"
-                    android:src="@drawable/ic_nav_personajes"
-                    android:scaleType="fitCenter" />
+                <FrameLayout
+                    android:layout_width="40dp"
+                    android:layout_height="40dp">
+
+                    <View
+                        android:id="@+id/nav_bg_personajes"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/nav_item_active_bg"
+                        android:visibility="visible"
+                        android:alpha="0" />
+
+                    <ImageView
+                        android:id="@+id/nav_icon_personajes"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_nav_personajes"
+                        android:scaleType="fitCenter" />
+
+                </FrameLayout>
 
                 <View
                     android:id="@+id/nav_dot_personajes"
-                    android:layout_width="5dp"
-                    android:layout_height="5dp"
-                    android:layout_marginTop="4dp"
+                    android:layout_width="4dp"
+                    android:layout_height="4dp"
+                    android:layout_marginTop="3dp"
                     android:background="@drawable/nav_dot_active"
                     android:visibility="invisible" />
 
             </LinearLayout>
 
-            <!-- ── NAV: VÍDEOS — botón central destacado ───── -->
+            <!-- ── NAV: VÍDEOS — botón central elevado ─────────── -->
             <LinearLayout
                 android:id="@+id/nav_btn_videos"
                 android:layout_width="0dp"
@@ -112,41 +162,57 @@
                 android:layout_weight="1"
                 android:orientation="vertical"
                 android:gravity="center"
+                android:clipChildren="false"
                 android:clickable="true"
                 android:focusable="true"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/nav_videos">
 
-                <FrameLayout
-                    android:layout_width="50dp"
-                    android:layout_height="50dp">
+                <!-- El botón central sobresale hacia arriba -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="54dp"
+                    android:layout_height="54dp"
+                    android:layout_marginBottom="-4dp"
+                    app:cardBackgroundColor="@color/tile_coral"
+                    app:cardCornerRadius="27dp"
+                    app:cardElevation="12dp"
+                    app:strokeColor="#CC7777"
+                    app:strokeWidth="1dp">
 
-                    <View
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:background="@drawable/nav_center_bg" />
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                    <ImageView
-                        android:id="@+id/nav_icon_videos"
-                        android:layout_width="26dp"
-                        android:layout_height="26dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_nav_videos"
-                        android:scaleType="fitCenter" />
+                        <!-- Shimmer/brillo interno en la parte superior -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="26dp"
+                            android:background="@drawable/nav_center_highlight"
+                            android:alpha="0.25" />
 
-                </FrameLayout>
+                        <ImageView
+                            android:id="@+id/nav_icon_videos"
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_nav_videos"
+                            android:scaleType="fitCenter" />
+
+                    </FrameLayout>
+
+                </com.google.android.material.card.MaterialCardView>
 
                 <View
                     android:id="@+id/nav_dot_videos"
-                    android:layout_width="5dp"
-                    android:layout_height="5dp"
-                    android:layout_marginTop="2dp"
+                    android:layout_width="4dp"
+                    android:layout_height="4dp"
+                    android:layout_marginTop="6dp"
                     android:background="@drawable/nav_dot_active"
                     android:visibility="invisible" />
 
             </LinearLayout>
 
-            <!-- ── NAV: SONIDOS ─────────────────────────────── -->
+            <!-- ── NAV: SONIDOS ─────────────────────────────────── -->
             <LinearLayout
                 android:id="@+id/nav_btn_sonidos"
                 android:layout_width="0dp"
@@ -159,24 +225,39 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/nav_sonidos">
 
-                <ImageView
-                    android:id="@+id/nav_icon_sonidos"
-                    android:layout_width="26dp"
-                    android:layout_height="26dp"
-                    android:src="@drawable/ic_nav_sonidos"
-                    android:scaleType="fitCenter" />
+                <FrameLayout
+                    android:layout_width="40dp"
+                    android:layout_height="40dp">
+
+                    <View
+                        android:id="@+id/nav_bg_sonidos"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/nav_item_active_bg"
+                        android:visibility="visible"
+                        android:alpha="0" />
+
+                    <ImageView
+                        android:id="@+id/nav_icon_sonidos"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_nav_sonidos"
+                        android:scaleType="fitCenter" />
+
+                </FrameLayout>
 
                 <View
                     android:id="@+id/nav_dot_sonidos"
-                    android:layout_width="5dp"
-                    android:layout_height="5dp"
-                    android:layout_marginTop="4dp"
+                    android:layout_width="4dp"
+                    android:layout_height="4dp"
+                    android:layout_marginTop="3dp"
                     android:background="@drawable/nav_dot_active"
                     android:visibility="invisible" />
 
             </LinearLayout>
 
-            <!-- ── NAV: ANIMACIONES ─────────────────────────── -->
+            <!-- ── NAV: ANIMACIONES ──────────────────────────────── -->
             <LinearLayout
                 android:id="@+id/nav_btn_animaciones"
                 android:layout_width="0dp"
@@ -189,18 +270,33 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/nav_animaciones">
 
-                <ImageView
-                    android:id="@+id/nav_icon_animaciones"
-                    android:layout_width="26dp"
-                    android:layout_height="26dp"
-                    android:src="@drawable/ic_nav_animaciones"
-                    android:scaleType="fitCenter" />
+                <FrameLayout
+                    android:layout_width="40dp"
+                    android:layout_height="40dp">
+
+                    <View
+                        android:id="@+id/nav_bg_animaciones"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/nav_item_active_bg"
+                        android:visibility="visible"
+                        android:alpha="0" />
+
+                    <ImageView
+                        android:id="@+id/nav_icon_animaciones"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_nav_animaciones"
+                        android:scaleType="fitCenter" />
+
+                </FrameLayout>
 
                 <View
                     android:id="@+id/nav_dot_animaciones"
-                    android:layout_width="5dp"
-                    android:layout_height="5dp"
-                    android:layout_marginTop="4dp"
+                    android:layout_width="4dp"
+                    android:layout_height="4dp"
+                    android:layout_marginTop="3dp"
                     android:background="@drawable/nav_dot_active"
                     android:visibility="invisible" />
 
