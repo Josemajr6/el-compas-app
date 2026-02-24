@@ -87,44 +87,39 @@ public class VideosFragment extends Fragment {
     private List<Video> crearListaVideos() {
         List<Video> lista = new ArrayList<>();
 
+        // Vídeo 1
         lista.add(new Video(
-                "El Duende del Flamenco",
-                "3:24 · Flamenco",
-                "Un recorrido visual por los tablaos más emblemáticos de Sevilla y Jerez, "
-                        + "donde el zapateao y el cante jondo se funden con la magia del sur.",
+                "Patica Quemándose",
+                "00:37 · Categoría Gemelos",
+                "Top seis quemadas del patica comiendo.",
                 R.drawable.videos,
-                // TODO: sustituir por URL real o R.raw.video_flamenco
-                "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                "android.resource://com.andalucia_app/" + R.raw.mi_video_1
+        ));
+        // Vídeo 2
+        lista.add(new Video(
+                "Listening andaluh C2",
+                "0:13 · Categoría Viejos",
+                "Viejos de campo se pelean",
+                R.drawable.videos,
+                "android.resource://com.andalucia_app/" + R.raw.mi_video_2
         ));
 
+        // Vídeo 3
         lista.add(new Video(
-                "Romería del Rocío",
-                "5:10 · Tradiciones",
-                "Las hermandades en procesión, el paso por las marismas del Guadalquivir y "
-                        + "la emoción de llegar a la aldea. Una fiesta que une a toda Andalucía.",
+                "Bellotas",
+                "00:59 · Categoría Viejos",
+                "Yo eh venio a por bellotas. A robar.",
                 R.drawable.videos,
-                // TODO: sustituir por URL real
-                "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
+                "android.resource://com.andalucia_app/" + R.raw.mi_video_3
         ));
 
+        // Vídeo 4
         lista.add(new Video(
-                "Semana Santa en Málaga",
-                "4:47 · Religión y Cultura",
-                "Tronos, saetas y el olor a incienso de las noches malagueñas. "
-                        + "Una Semana Santa única que mezcla devoción, arte y emoción popular.",
+                "Puestada",
+                "00:34 · Categoría DROGADOS",
+                "Un yonki esta drogado en su coche.",
                 R.drawable.videos,
-                // TODO: sustituir por URL real
-                "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
-        ));
-
-        lista.add(new Video(
-                "Feria de Abril",
-                "2:58 · Fiestas",
-                "Trajes de flamenca, caballos, sevillanas y el ambiente inconfundible del Real "
-                        + "de la Feria. La alegría del sur concentrada en una semana.",
-                R.drawable.videos,
-                // TODO: sustituir por URL real
-                "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
+                "android.resource://com.andalucia_app/" + R.raw.mi_video_4
         ));
 
         return lista;
