@@ -97,9 +97,9 @@ public class VideosFragment extends Fragment {
         ));
         // Vídeo 2
         lista.add(new Video(
-                "Listening andaluh C2",
-                "0:13 · Categoría Viejos",
-                "Viejos de campo se pelean",
+                "Juan enfuscado fan",
+                "0:34 · Categoría Palmilla",
+                "Juan mata a todo el mundo",
                 R.drawable.videos,
                 "android.resource://com.andalucia_app/" + R.raw.mi_video_2
         ));
