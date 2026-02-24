@@ -45,7 +45,7 @@ public class PersonajesFragment extends Fragment {
 
         lista.add(new Personaje(
                 "'Faliyo' de San Roque",
-                "2000 · San Roque (Cádiz)",
+                "1995 · San Roque (Cádiz)",
                 "Esta persona es uno de los mayores personajes de cádiz y autor de 'Caramelo'",
                 "Personaje",
                 R.drawable.foto_faliyo,
