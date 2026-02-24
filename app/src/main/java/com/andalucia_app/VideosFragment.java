@@ -89,6 +89,24 @@ public class VideosFragment extends Fragment {
 
         // Vídeo 1
         lista.add(new Video(
+                "Iuuuuuuu",
+                "02:13 · Categoría Viejos",
+                "Este video si que deberia de estar en los libros de historia",
+                R.drawable.videos,
+                "android.resource://com.andalucia_app/" + R.raw.video_iuuu
+        ));
+
+        // Vídeo 1
+        lista.add(new Video(
+                "Pim Pam",
+                "00:39 · Categoría España",
+                "Que viva la orden y la ley",
+                R.drawable.videos,
+                "android.resource://com.andalucia_app/" + R.raw.video_pimpam
+        ));
+
+        // Vídeo 1
+        lista.add(new Video(
                 "Patica Quemándose",
                 "00:37 · Categoría Gemelos",
                 "Top 6 quemadas del patica comiendo.",
