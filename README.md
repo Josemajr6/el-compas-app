@@ -1,12 +1,10 @@
 <div align="center">
 
-<img src="screenshots/inicio.png" width="180" alt="El Compás" />
-
-# 🎵 El Compás
+<img src="app/src/main/res/drawable/logo.png" width="180" alt="El Compás" />
 
 ### *"Andalucía no se explica, se siente en cada compás."*
 
-**Desarrollado por [Ecentia](https://github.com/Ecentia)**  
+**Desarrollado por [Ecentia](https://www.ecentia.es)**  
 IES Francisco Rodríguez Marín · Osuna, Sevilla · DAM 2025–2026
 
 ---
@@ -51,7 +49,7 @@ IES Francisco Rodríguez Marín · Osuna, Sevilla · DAM 2025–2026
 
 ## 🌍 Descripción del Proyecto
 
-**El Compás** es una aplicación Android nativa desarrollada íntegramente en **Java** como proyecto final del ciclo formativo de **Desarrollo de Aplicaciones Multiplataforma (DAM)** en el IES Francisco Rodríguez Marín de Osuna (Sevilla). El proyecto es obra de **Ecentia**, el equipo de desarrollo formado por los propios alumnos durante el curso 2025–2026.
+**El Compás** es una aplicación Android nativa desarrollada íntegramente en **Java** como proyecto del **Día de Andalucía** en el IES Francisco Rodríguez Marín de Osuna (Sevilla). El proyecto es obra de **Ecentia**, el equipo de desarrollo formado por los propios alumnos durante el curso 2025–2026.
 
 La app es una guía cultural interactiva de Andalucía que reúne en un solo lugar personajes representativos de la región, vídeos característicos con reproductor integrado, música de diferentes géneros con control completo de reproducción, y animaciones Lottie. Todo ello presentado bajo una identidad visual consistente, con paleta cromática propia, transiciones cuidadas y una bottom navigation completamente custom.
 
@@ -790,8 +788,8 @@ lista.add(new Animacion(
 
 <div align="center">
 
-Proyecto desarrollado por **Ecentia** como trabajo fin de ciclo de  
-**Desarrollo de Aplicaciones Multiplataforma (DAM)**  
+Proyecto desarrollado por **Ecentia** como trabajo del  
+**Día de Andalucía**  
 IES Francisco Rodríguez Marín · Osuna, Sevilla · Curso 2025–2026
 
 ---
