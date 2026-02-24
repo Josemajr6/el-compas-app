@@ -1,13 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    ═══════════════════════════════════════════════════════════════
-    ACTIVITY MAIN — Bottom Nav rediseñada
-    ───────────────────────────────────────────────────────────────
-    Diseño: píldora flotante con indicador animado de selección.
-    Iconos vectoriales personalizados, sin PNGs de baja resolución.
-    Paleta: albero_cream · sage_green · tile_coral · yellow_sun
-    ═══════════════════════════════════════════════════════════════
--->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -15,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background_light">
 
-    <!-- Contenedor de fragmentos — ocupa toda la pantalla -->
+    <!-- Contenedor de fragmentos -->
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="0dp"
@@ -26,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- ══════════════════════════════════════════════════
-         BOTTOM NAV — píldora flotante
+         BOTTOM NAV — píldora flotante dark_green
          ══════════════════════════════════════════════════ -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/nav_card"
@@ -35,20 +26,15 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        app:cardBackgroundColor="@color/albero_cream"
+        app:cardBackgroundColor="@color/dark_green"
         app:cardCornerRadius="36dp"
         app:cardElevation="24dp"
-        app:strokeColor="@color/yellow_sun"
+        app:strokeColor="#3A4A43"
         app:strokeWidth="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!--
-            LinearLayout horizontal con 5 botones personalizados.
-            Cada botón es un LinearLayout (icono + punto indicador).
-            El punto solo es visible en el ítem seleccionado.
-        -->
         <LinearLayout
             android:id="@+id/nav_container"
             android:layout_width="match_parent"
@@ -78,7 +64,6 @@
                     android:src="@drawable/ic_nav_inicio"
                     android:scaleType="fitCenter" />
 
-                <!-- Punto indicador activo -->
                 <View
                     android:id="@+id/nav_dot_inicio"
                     android:layout_width="5dp"
@@ -119,11 +104,7 @@
 
             </LinearLayout>
 
-            <!-- ── NAV: VÍDEOS — botón central destacado ──── -->
-            <!--
-                El botón central lleva un fondo de círculo sage_green
-                para que destaque como acción principal, estilo FAB.
-            -->
+            <!-- ── NAV: VÍDEOS — botón central destacado ───── -->
             <LinearLayout
                 android:id="@+id/nav_btn_videos"
                 android:layout_width="0dp"
@@ -136,12 +117,10 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/nav_videos">
 
-                <!-- Círculo elevado para el botón central -->
                 <FrameLayout
                     android:layout_width="50dp"
                     android:layout_height="50dp">
 
-                    <!-- Fondo circular -->
                     <View
                         android:layout_width="50dp"
                         android:layout_height="50dp"

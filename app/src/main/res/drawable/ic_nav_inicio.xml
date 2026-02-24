@@ -13,7 +13,7 @@
     <!-- Tejado / triángulo -->
     <path
         android:pathData="M3,10.5 L12,3 L21,10.5"
-        android:strokeColor="@color/sage_green"
+        android:strokeColor="@color/background_light"
         android:strokeWidth="2"
         android:strokeLineCap="round"
         android:strokeLineJoin="round"
@@ -22,7 +22,7 @@
     <!-- Cuerpo de la casa -->
     <path
         android:pathData="M5,10.5 L5,20 Q5,21 6,21 L18,21 Q19,21 19,20 L19,10.5"
-        android:strokeColor="@color/sage_green"
+        android:strokeColor="@color/background_light"
         android:strokeWidth="2"
         android:strokeLineCap="round"
         android:strokeLineJoin="round"
@@ -31,7 +31,7 @@
     <!-- Puerta centrada -->
     <path
         android:pathData="M9.5,21 L9.5,15.5 Q9.5,14 11,14 L13,14 Q14.5,14 14.5,15.5 L14.5,21"
-        android:strokeColor="@color/sage_green"
+        android:strokeColor="@color/background_light"
         android:strokeWidth="1.8"
         android:strokeLineCap="round"
         android:strokeLineJoin="round"

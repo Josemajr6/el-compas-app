@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    Fondo circular del botón central (Vídeos) en la bottom nav.
-    Color: sage_green — destaca como acción principal tipo FAB.
+    Fondo circular del botón central (Vídeos).
+    tile_coral (#D88C8C) destaca cálidamente sobre dark_green.
     Colócalo en:  app/src/main/res/drawable/nav_center_bg.xml
 -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="oval">
-    <solid android:color="@color/sage_green" />
-    <!-- Sombra suave simulada con stroke ligeramente más oscuro -->
-    <stroke
-        android:width="1dp"
-        android:color="#6A7E78" />
+    <solid android:color="@color/tile_coral" />
 </shape>

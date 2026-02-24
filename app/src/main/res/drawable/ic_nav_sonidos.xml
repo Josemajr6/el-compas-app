@@ -13,32 +13,32 @@
     <!-- Palo vertical izquierdo -->
     <path
         android:pathData="M9,17 L9,5"
-        android:strokeColor="@color/sage_green"
+        android:strokeColor="@color/background_light"
         android:strokeWidth="2"
         android:strokeLineCap="round" />
 
     <!-- Palo vertical derecho -->
     <path
         android:pathData="M15,19 L15,7"
-        android:strokeColor="@color/sage_green"
+        android:strokeColor="@color/background_light"
         android:strokeWidth="2"
         android:strokeLineCap="round" />
 
     <!-- Corchete horizontal que une ambas notas -->
     <path
         android:pathData="M9,5 L15,7"
-        android:strokeColor="@color/sage_green"
+        android:strokeColor="@color/background_light"
         android:strokeWidth="2"
         android:strokeLineCap="round" />
 
     <!-- Cabeza nota izquierda (elipse) -->
     <path
         android:pathData="M9,17 A2.5,1.8 0 1 1 9,17.01 Z"
-        android:fillColor="@color/sage_green" />
+        android:fillColor="@color/background_light" />
 
     <!-- Cabeza nota derecha (elipse) -->
     <path
         android:pathData="M15,19 A2.5,1.8 0 1 1 15,19.01 Z"
-        android:fillColor="@color/sage_green" />
+        android:fillColor="@color/background_light" />
 
 </vector>

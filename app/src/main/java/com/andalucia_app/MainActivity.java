@@ -15,51 +15,45 @@ import androidx.fragment.app.FragmentTransaction;
 
 /**
  * ════════════════════════════════════════════════════════════════
- * MainActivity — Bottom Nav personalizada
+ * MainActivity — Bottom Nav dark_green
  * ────────────────────────────────────────────────────────────────
- * Navegación completamente custom: 5 botones con:
- *   · Icono vectorial que cambia de tinte activo/inactivo
- *   · Punto indicador debajo del icono activo
- *   · Animación de rebote (OvershootInterpolator) al seleccionar
- *   · Botón central de Vídeos con fondo circular destacado
- *
- * Para añadir una nueva sección:
- *   1. Añade el botón en activity_main.xml
- *   2. Referencia sus Views en initNavViews()
- *   3. Añade el case en setNavSelected()
+ * Fondo píldora : dark_green  (#232B27)
+ * Iconos inactivos : blanco crema (#FDFBF7)
+ * Icono activo : yellow_sun  (#E8D0A5)  — cálido sobre el verde
+ * Punto indicador : yellow_sun
+ * Botón central (Vídeos) : tile_coral — acento sobre dark_green
  * ════════════════════════════════════════════════════════════════
  */
 public class MainActivity extends AppCompatActivity {
 
-    // ── Referencias a iconos ──────────────────────────────────────
+    // ── Iconos ───────────────────────────────────────────────────
     private ImageView iconInicio, iconPersonajes, iconVideos, iconSonidos, iconAnimaciones;
 
-    // ── Referencias a puntos indicadores ─────────────────────────
+    // ── Puntos indicadores ───────────────────────────────────────
     private View dotInicio, dotPersonajes, dotVideos, dotSonidos, dotAnimaciones;
 
-    // ── Referencias a los botones (para animación scale) ─────────
-    private LinearLayout btnInicio, btnPersonajes, btnSonidos, btnAnimaciones;
-    private LinearLayout btnVideos; // es un LinearLayout también
+    // ── Botones ──────────────────────────────────────────────────
+    private LinearLayout btnInicio, btnPersonajes, btnVideos, btnSonidos, btnAnimaciones;
 
-    // ── Colores de tinte ─────────────────────────────────────────
-    private int colorActivo;
-    private int colorInactivo;
+    // ── Colores ──────────────────────────────────────────────────
+    private int colorActivo;    // yellow_sun  — icono seleccionado
+    private int colorInactivo;  // blanco crema — iconos no seleccionados
+    private int colorVideosFondo; // blanco crema sobre tile_coral del círculo central
 
-    // ── Ítem seleccionado actualmente ────────────────────────────
-    private int selectedItem = 0; // 0=inicio, 1=personajes, 2=videos, 3=sonidos, 4=anim
+    private int selectedItem = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        colorActivo   = ContextCompat.getColor(this, R.color.text_dark_brown);
-        colorInactivo = ContextCompat.getColor(this, R.color.sage_green);
+        colorActivo      = ContextCompat.getColor(this, R.color.yellow_sun);
+        colorInactivo    = ContextCompat.getColor(this, R.color.background_light); // #FDFBF7
+        colorVideosFondo = ContextCompat.getColor(this, R.color.background_light);
 
         initNavViews();
         setupClickListeners();
 
-        // Estado inicial: Inicio
         if (savedInstanceState == null) {
             setNavSelected(0);
             cargarFragment(new InicioFragment());
@@ -71,21 +65,18 @@ public class MainActivity extends AppCompatActivity {
     // ─────────────────────────────────────────────────────────────
 
     private void initNavViews() {
-        // Botones
         btnInicio      = findViewById(R.id.nav_btn_inicio);
         btnPersonajes  = findViewById(R.id.nav_btn_personajes);
         btnVideos      = findViewById(R.id.nav_btn_videos);
         btnSonidos     = findViewById(R.id.nav_btn_sonidos);
         btnAnimaciones = findViewById(R.id.nav_btn_animaciones);
 
-        // Iconos
         iconInicio      = findViewById(R.id.nav_icon_inicio);
         iconPersonajes  = findViewById(R.id.nav_icon_personajes);
         iconVideos      = findViewById(R.id.nav_icon_videos);
         iconSonidos     = findViewById(R.id.nav_icon_sonidos);
         iconAnimaciones = findViewById(R.id.nav_icon_animaciones);
 
-        // Puntos
         dotInicio      = findViewById(R.id.nav_dot_inicio);
         dotPersonajes  = findViewById(R.id.nav_dot_personajes);
         dotVideos      = findViewById(R.id.nav_dot_videos);
@@ -105,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
                 cargarFragment(new InicioFragment());
             }
         });
-
         btnPersonajes.setOnClickListener(v -> {
             if (selectedItem != 1) {
                 animateBounce(iconPersonajes);
@@ -113,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
                 cargarFragment(new PersonajesFragment());
             }
         });
-
         btnVideos.setOnClickListener(v -> {
             if (selectedItem != 2) {
                 animateBounce(iconVideos);
@@ -121,7 +110,6 @@ public class MainActivity extends AppCompatActivity {
                 cargarFragment(new VideosFragment());
             }
         });
-
         btnSonidos.setOnClickListener(v -> {
             if (selectedItem != 3) {
                 animateBounce(iconSonidos);
@@ -129,7 +117,6 @@ public class MainActivity extends AppCompatActivity {
                 cargarFragment(new SonidosFragment());
             }
         });
-
         btnAnimaciones.setOnClickListener(v -> {
             if (selectedItem != 4) {
                 animateBounce(iconAnimaciones);
@@ -143,17 +130,10 @@ public class MainActivity extends AppCompatActivity {
     //  Estado visual del nav
     // ─────────────────────────────────────────────────────────────
 
-    /**
-     * Actualiza tintes e indicadores según el ítem seleccionado.
-     * @param index 0=inicio · 1=personajes · 2=videos · 3=sonidos · 4=animaciones
-     */
     private void setNavSelected(int index) {
         selectedItem = index;
-
-        // Restablecer todos a inactivo
         resetAllNav();
 
-        // Activar el seleccionado
         switch (index) {
             case 0:
                 iconInicio.setColorFilter(colorActivo);
@@ -164,8 +144,8 @@ public class MainActivity extends AppCompatActivity {
                 dotPersonajes.setVisibility(View.VISIBLE);
                 break;
             case 2:
-                // El ícono de vídeos va en blanco porque el fondo es sage_green
-                iconVideos.setColorFilter(ContextCompat.getColor(this, R.color.background_light));
+                // El ícono de vídeos siempre en crema (fondo tile_coral del círculo)
+                iconVideos.setColorFilter(colorVideosFondo);
                 dotVideos.setVisibility(View.VISIBLE);
                 break;
             case 3:
@@ -180,15 +160,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void resetAllNav() {
-        // Tinte inactivo en todos
         iconInicio.setColorFilter(colorInactivo);
         iconPersonajes.setColorFilter(colorInactivo);
-        // Vídeos siempre en blanco (fondo circular sage_green)
-        iconVideos.setColorFilter(ContextCompat.getColor(this, R.color.background_light));
+        iconVideos.setColorFilter(colorVideosFondo);  // siempre crema
         iconSonidos.setColorFilter(colorInactivo);
         iconAnimaciones.setColorFilter(colorInactivo);
 
-        // Ocultar todos los puntos
         dotInicio.setVisibility(View.INVISIBLE);
         dotPersonajes.setVisibility(View.INVISIBLE);
         dotVideos.setVisibility(View.INVISIBLE);
@@ -197,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // ─────────────────────────────────────────────────────────────
-    //  Animación de rebote al seleccionar un ítem
+    //  Animación rebote al seleccionar
     // ─────────────────────────────────────────────────────────────
 
     private void animateBounce(View target) {

@@ -14,7 +14,7 @@
     <!-- Marco exterior del fotograma -->
     <path
         android:pathData="M3,5 Q3,4 4,4 L20,4 Q21,4 21,5 L21,19 Q21,20 20,20 L4,20 Q3,20 3,19 Z"
-        android:strokeColor="@color/sage_green"
+        android:strokeColor="@color/background_light"
         android:strokeWidth="1.9"
         android:strokeLineJoin="round"
         android:fillColor="#00000000" />
@@ -22,22 +22,22 @@
     <!-- Perforaciones superiores del fotograma (3 rectángulos) -->
     <path
         android:pathData="M6,4 L6,6.5 M10,4 L10,6.5 M14,4 L14,6.5 M18,4 L18,6.5"
-        android:strokeColor="@color/sage_green"
+        android:strokeColor="@color/background_light"
         android:strokeWidth="1.7"
         android:strokeLineCap="round" />
 
     <!-- Perforaciones inferiores del fotograma (3 rectángulos) -->
     <path
         android:pathData="M6,17.5 L6,20 M10,17.5 L10,20 M14,17.5 L14,20 M18,17.5 L18,20"
-        android:strokeColor="@color/sage_green"
+        android:strokeColor="@color/background_light"
         android:strokeWidth="1.7"
         android:strokeLineCap="round" />
 
     <!-- Triángulo play centrado dentro del fotograma -->
     <path
         android:pathData="M10,9.5 L10,14.5 L15.5,12 Z"
-        android:fillColor="@color/sage_green"
-        android:strokeColor="@color/sage_green"
+        android:fillColor="@color/background_light"
+        android:strokeColor="@color/background_light"
         android:strokeWidth="0.5"
         android:strokeLineJoin="round" />
 
